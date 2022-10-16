@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="">
+    <title>Background</title>
+</head>
+<style>
+    * {
+        top: 0px;
+        left: 0px;
+        margin: 0px;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        background-size: 100% 100%;
+        background-image: url("/Lybrary/main_background.jpg");
+        background-repeat: no-repeat;
+        opacity: 95%;
+    }
+
+    .menu {
+        display: flex;
+        position: absolute;
+        /* border: 2px solid red; */
+        height: 100px;
+    }
+
+    .menu-modal {
+        position: absolute;
+        /* border: 2px solid red; */
+        width: 100%;
+        height: 100px;
+        opacity: 50%;
+        background-color: rgb(58, 226, 72);
+    }
+
+    .menu-modal:hover {
+        box-shadow: 3px 10px 15px 0px rgb(123, 221, 12);
+        border-radius: 10px;
+    }
+
+    .Homepage,
+    .studyTry {
+        width: 300px;
+        line-height: 100px;
+        text-align: center;
+        color: red;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+    }
+
+    .fa {
+        line-height: 100px;
+        margin-left: 10px;
+    }
+    .Homepage {
+        background-image: url(/Lybrary/AX.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        opacity:80%;
+    }
+    .Homepage:hover,
+    .studyTry:hover {
+        box-shadow: 3px 10px 15px 0px rgb(228, 239, 64);
+        border-radius: 10px;
+    }
+
+    #signin,
+    #login {
+        position: absolute;
+        top: 30px;
+        width: 100px;
+        height: 50px;
+        background-image: linear-gradient(to left, yellow, rgb(26, 207, 26));
+        border-radius: 10px;
+        border: none;
+        color: blue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+    }
+
+    #signin {
+        left: 1200px;
+    }
+
+    #login {
+        left: 1350px;
+    }
+
+    #login:hover,
+    #signin:hover {
+        background-image: linear-gradient(to right, yellow, rgb(26, 207, 26));
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+        outline: none;
+        border-radius: 10px;
+        border: none;
+    }
+
+    #tryList {
+        position: absolute;
+        top: 101px;
+        left: 260px;
+        width: 300px;
+        height: 100vh;
+        text-decoration: none;
+        display: none;
+    }
+
+    #tryList ol>li {
+        border-bottom: 1px solid blue;
+        height: 50px;
+        width: 300px;
+        padding-bottom: 0px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 5px;
+        background-color: rgb(151, 243, 94);
+        list-style: none;
+        font-size: 18px;
+    }
+
+    .video {
+        position: absolute;
+        top: 280px;
+        left: 500px;
+        box-shadow: 40px 40px 100px 30px rgb(17, 215, 53);
+    }
+
+    #text:hover {
+        cursor: pointer;
+    }
+#text1 {
+    display: none;
+}
+    .text1, .text2 {
+        border-bottom: 2px solid red;
+        height: 50px;
+        width: 200px;
+        position: absolute;
+        left: 340px;
+        background-color: rgb(240, 240, 68);
+    }
+
+    .text2 {
+        top: 52px;
+    }
+</style>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="menu-modal"></div>
+        <div class="menu">
+            <div class="Homepage">
+                <span></span>
+            </div>
+            <div class="studyTry">
+                <span>Trial learning</span>
+                <i onclick="showList()" class="fa fa-chevron-down"></i>
+            </div>
+            <button id="signin" onclick="Signin()">Register</button>
+            <button id="login" onclick="Login()">Login</button>
+        </div>
+        <div id="tryList">
+            <ol>
+                <li id="text" onclick="showText()" style="color:blue">Japanese alphabet
+                    <div id="text1">
+                        <div class="text1"><a href="" style="color:blue; text-decoration: none ;">Hiragana</a></div> <br>
+                        <div class="text1 text2"><a href="" style="color:blue; text-decoration: none ;">Katakana</a></div>
+                    </div>
+                </li>
+                <li><a style="color:blue; text-decoration: none ;" href="#">Mina 1</a></li>
+            </ol>
+        </div>
+        <iframe class="video" width="500px" height="300px" src="https://www.youtube.com/embed/jxK8GxBlDVg"
+            title="Giới thiệu sơ lược về tiếng Nhật và bảng chữ cái Hiragana dành cho người mới bắt đầu học tiếng Nhật"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+
+
+
+    <script>
+        function showList() {
+            let tryList = document.getElementById("tryList");
+            if (tryList.style.display == ""||tryList.style.display == "none") {
+                tryList.setAttribute("style", "display:block");
+            } else {
+                tryList.setAttribute("style", "display:none");
+            }
+        }
+        function showText() {
+            let text = document.getElementById("text1");
+            if (text.style.display == ""||text.style.display == "none") {
+                text.setAttribute("style", "display:block");
+            } else {
+                text.setAttribute("style", "display:none");
+            }
+        }
+        function Signin() {
+            window.location.href = "/login/creatAcount.html"
+        }
+        function Login() {
+            window.location.href = "/login/login.html"
+        }
+    </script>
+</body>
+
+</html>

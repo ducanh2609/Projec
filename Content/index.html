@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Homepage</title>
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .container {
+        background-color: rgb(116, 209, 107);
+        width: 100%;
+        height: 100vh;
+        background-size: 100% 100%;
+        place-items: center;
+    }
+
+    .header {
+        background-image: url(/Lybrary/1200x340_Mesh_Header_Green-LightGreen.jfif);
+        display: flex;
+        box-sizing: border-box;
+        padding: 10px;
+        background-repeat: no-repeat;
+        background-size: 100% 100px;
+        position: relative;
+        width: 100%;
+        height: 100px;
+        background-color: rgb(143, 232, 53);
+        display: flex;
+    }
+
+    .header:hover {
+        box-shadow: 3px 10px 15px 0px rgb(243, 239, 25);
+    }
+
+    .header i,
+    h3 {
+        left: 75%;
+        line-height: 80px;
+        text-align: right;
+        height: 100%;
+    }
+
+    .header h3 {
+        padding-right: 10px;
+        width: 15%;
+        height: auto;
+    }
+
+    .header i {
+        width: 2%;
+        height: auto;
+        color: yellow;
+
+    }
+
+    .header #menuTabs {
+        display: flex;
+        /* border: 2px solid red; */
+        width: 93%;
+        box-sizing: border-box;
+        padding: 5px 30px 10px 30px;
+    }
+
+    #logo {
+        width: 10%;
+        height: 100%;
+        background-image: url(/Lybrary/AX.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        border-radius: 20px;
+    }
+
+    #logo:hover {
+        box-shadow: 3px 10px 10px yellow, inset 0px 10px 5px rgb(13, 134, 19);
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    #menuList {
+        /* border: 2px solid blue; */
+        box-shadow: inset 5px 10px 3px rgb(122, 172, 46);
+        width: 90%;
+        height: 100%;
+        display: flex;
+        box-sizing: border-box;
+        padding: 5px 10px 5px 10px;
+    }
+
+    .menu-list-number {
+        display: flex;
+        /* border: 2px solid yellow; */
+        width: calc(100% / 6);
+        box-sizing: border-box;
+        padding: 0px 20px 0px 0px;
+        box-shadow: 5px 5px 3px,
+        inset -5px 5px 5px rgb(143, 242, 5);
+        border-radius: 10px;
+
+    }
+
+    .menu-list-number .fa {
+        /* border: 2px solid red; */
+        width: 10%;
+        line-height: 60px;
+        text-align: center;
+    }
+
+    .menu-list-number .listItems {
+        box-sizing: border-box;
+        /* border: 2px solid blue; */
+        font-size: 12px;
+        width: 90%;
+        line-height: 60px;
+        text-align: right;
+        padding-right: 10px;
+    }
+
+    .menu-list-number:hover {
+        color: red;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: rgb(54, 231, 30);
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 5px 5px 3px yellow,
+        inset -5px 5px 5px rgb(143, 242, 5);
+    }
+
+    #menu {
+        position: absolute;
+        top: 100px;
+        right: 5px;
+        width: 10 0px;
+        display: none;
+    }
+
+    .header i:hover {
+        cursor: pointer;
+        color: red;
+
+    }
+
+    #menu div {
+        background-color: rgb(242, 250, 17);
+        border-bottom: 1px solid red;
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 2px;
+    }
+
+    #menu div:hover {
+        color: red;
+        cursor: pointer;
+    }
+
+    .background-modal {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0px;
+        background-color: rgb(172, 178, 184);
+        background-size: 100% 100%;
+        display: none;
+    }
+
+    .logout-message {
+        position: absolute;
+        top: 200px;
+        left: 400px;
+        border: 2px solid red;
+        width: 700px;
+        height: 200px;
+        background-color: rgb(226, 73, 73);
+        border-radius: 20px;
+        box-sizing: border-box;
+        padding: 40px;
+        text-align: center;
+        display: none;
+    }
+
+    .logout-message div,
+    a {
+        font-size: 30px;
+    }
+
+    .changePassword {
+        position: relative;
+        top: calc( -200vh + 100px);
+        left: 42%;
+        width: 330px;
+        height: 450px;
+        background-color: rgb(7, 201, 52);
+        box-sizing: border-box;
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 20px 10px 30px rgb(234, 242, 8),
+            inset 20px 10px 30px rgb(21, 64, 23);
+        display: none;
+    }
+
+    .changePassword input {
+        width: 200px;
+        border-radius: 7px;
+        height: 25px;
+        outline: none;
+    }
+
+    .changePassword button {
+        position: relative;
+        top: 50px;
+        border-radius: 10px;
+        position: relative;
+        margin: 10px 0px 0px 20px;
+        width: 80px;
+        height: 40px;
+        left: 0%;
+        border: none;
+        transition: all .4s ease-in-out;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background-image: linear-gradient(to right, green, yellow);
+        transition: all .4s ease-in-out;
+        box-shadow: 2px 3px 5px 0 red;
+    }
+
+    .changePassword i {
+        position: relative;
+        left: -30px;
+    }
+
+    .changePassword i:hover {
+        cursor: pointer;
+    }
+
+    #oldPasswordError,
+    #passwordError,
+    #passwordExits,
+    #confirmPasswordError {
+        display: none;
+    }
+
+    .changePassword-modal {
+        position: relative;
+        top: -100vh;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(130, 226, 85);
+        border: 2px solid red;
+        opacity: 50%;
+        display: none;
+    }
+
+    .user-infor {
+        position: relative;
+        top: calc( -100vh + 100px);
+        border-radius: 20px;
+        background-color: rgb(157, 221, 92);
+        box-sizing: border-box;
+        width: 400px;
+        height: 300px;
+        margin: 0 auto;
+        padding: 40px;
+        box-shadow: 3px 15px 10px;
+        display: none;
+    }
+
+    #user-infor-modal {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 100vh;
+        background-color: aqua;
+        opacity: 50%;
+        display: none;
+    }
+
+    .update-infor {
+        position: relative;
+        border: 2px solid red;
+        top: calc(-100vh - 200px);
+        width: 400px;
+        height: 370px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        border-radius: 20px;
+        padding: 40px;
+        background-color: rgb(232, 232, 51);
+        display: none;
+        box-shadow: 5px 10px 5px;
+    }
+
+    .update-infor input {
+        width: 300px;
+        height: 20px;
+        border-radius: 10px;
+        outline: none;
+    }
+
+    .update-notifi a {
+        color: red;
+    }
+
+    .update-notifi a:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        color: blue;
+    }
+
+    .update-notifi a {
+        font-size: 16px;
+    }
+
+    .update-infor button {
+        top: 5px;
+        border-radius: 10px;
+        position: relative;
+        margin: 10px 0px 0px 20px;
+        width: 100px;
+        height: 40px;
+        left: 25px;
+        border: none;
+        transition: all .4s ease-in-out;
+    }
+
+    .update-infor button:hover {
+        cursor: pointer;
+        background-image: linear-gradient(to right, green, yellow);
+        transition: all .4s ease-in-out;
+        box-shadow: 2px 3px 5px 0 red;
+    }
+
+    .search {
+        /* border: 2px solid blue; */
+        width: 100%;
+        height: 30px;
+        box-sizing: border-box;
+        padding: 2px 10px 2px;
+        text-align: right;
+    }
+
+    .search input {
+        outline: none;
+        box-shadow: inset 2px 3px rgb(171, 168, 168);
+        border-radius: 5px;
+        width: 250px;
+        height: 100%;
+    }
+
+    .body-page {
+        /* border: 2px solid red; */
+        width: 100%;
+        height: calc(100% - 100px - 30px);
+        display: flex;
+
+    }
+
+    .body-page .body-list {
+        /* border: 2px solid blue; */
+        width: 15%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        background-color: rgb(84, 162, 74);
+        /* border-top: 5px double; */
+        /* border-right: 5px double; */
+        box-shadow: inset 5px 10px 5px 5px rgb(5, 115, 5);
+
+    }
+
+    .body-page .body-content {
+        /* border: 2px solid yellow; */
+        width: 85%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        background-color: white;
+        box-shadow: inset 5px 10px rgb(177, 171, 171);
+        /* border-top: 2px solid; */
+
+    }
+
+    .news {
+        /* border: 2px solid yellow; */
+        width: 100%;
+        height: 50px;
+        background-color: rgb(117, 206, 105);
+        box-shadow: 5px 10px 5px,
+            inset -5px -5px 0px 2px rgb(19, 234, 19);
+        border-radius: 10px;
+        line-height: 50px;
+        text-align: center;
+        font-size: large;
+    }
+    .news:hover{
+        box-shadow:5px 10px 5px rgb(232, 232, 61),
+            inset -5px -5px 0px 2px rgb(19, 234, 19);
+            color: red;
+            font-size: larger;
+    }
+</style>
+
+<body onload="check()">
+
+
+    <div class="container">
+        <div class="header">
+            <div id="menuTabs">
+                <div id="logo"></div>
+                <div id="menuList">
+                    <div class="menu-list-number">
+                        <span class="listItems">Beginner level</span>
+                        <i onclick="showList()" class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="menu-list-number">
+                        <span class="listItems">Elementary level</span>
+                        <i onclick="showList()" class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="menu-list-number">
+                        <span class="listItems">Intermediate level</span>
+                        <i onclick="showList()" class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="menu-list-number">
+                        <span class="listItems">Advanced level</span>
+                        <i onclick="showList()" class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="menu-list-number">
+                        <span class="listItems">Kanji</span>
+                        <i onclick="showList()" class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="menu-list-number">
+                        <span class="listItems">Test</span>
+                        <i onclick="showList()" class="fa fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="user" id="user"></h3>
+            <i onclick="showList()" class="fa-solid fa-user fa-2x"></i>
+            <div id="menu">
+                <div id="infor" onclick="infor()">Account information</div>
+                <div id="change-pass" onclick="showChangeBox()">Change Password</div>
+                <div>My study schedule</div>
+                <div id="logout" onclick="logOut()">Log out</div>
+            </div>
+        </div>
+        <div class="search">
+            <label for="search-input">Search</label>
+            <input id="search-input" type="search" placeholder="Enter keywords">
+        </div>
+        <div class="body-page">
+            <div class="body-list">
+                <div class="news">Daily News</div>
+                <div class="news">Dictionary</div>
+            </div>
+            <div class="body-content"></div>
+        </div>
+
+
+        <!-- Đổi mật khẩu -->
+        <div id="changePassword-modal" class="changePassword-modal"></div>
+        <div id="changePassword" class="changePassword">
+            <label for="oldPassword">Old password</label> <br>
+            <input id="oldPassword" onkeydown="entry1(event,'password')" type="password">
+            <i id="icon1" onclick="showPassword('oldPassword','icon1')" class="fa-solid fa-eye"></i><br>
+            <span id="oldPasswordError">Wrong password</span> <br>
+
+            <label for="password">New password</label><br>
+            <input id="password" onkeydown="entry1(event,'confirmPassword')" type="password">
+            <i id="icon2" onclick="showPassword('password','icon2')" class="fa-solid fa-eye"></i> <br>
+            <span id="passwordExits">Password duplicate</span> <br>
+
+            <label for="confirmPassword">Confirm password</label><br>
+            <input id="confirmPassword" onkeydown="entry(event)" type="password">
+            <i id="icon3" onclick="showPassword('confirmPassword','icon3')" class="fa-solid fa-eye"></i><br>
+            <span id="confirmPasswordError">Password doesn't match</span> <br>
+
+            <button onclick="changePassword()">Save</button>
+            <button onclick="cancel()">Cancel</button>
+        </div>
+        <!-- Thông tin tài khoản -->
+        <div id="user-infor-modal"></div>
+        <div id="user-infor" class="user-infor">
+            <h1>Account information</h1> <br>
+            Username: <span id="user-name"></span> <br>
+            Name: <span id="name"></span> <br>
+            Age: <span id="age"></span> <br>
+            Email: <span id="eml"></span> <br>
+            Mobile number: <span id="mobile"></span> <br>
+            Address: <span id="address"></span> <br>
+            Job: <span id="jobwork"></span> <br> <br>
+            <div id="update-notifi" class="update-notifi">(*) <a onclick="updateEntry()">Update information</a></div>
+            <div id="nofi-cancel" class="update-notifi">(x) <a onclick="userOut()">Close</a></div>
+
+        </div>
+        <!-- Cập nhật thông tin -->
+        <div id="update-infor" class="update-infor">
+            <label for="update-name">Name</label> <br>
+            <input class="update-name" onkeydown="entry1(event,'update-age')" id="update-name" type="text"> <br>
+
+            <label for="update-age">Age</label> <br>
+            <input class="update-age" onkeydown="entry1(event,'update-mobile')" id="update-age" type="number"> <br>
+
+            <label for="update-mobile">Mobile number</label> <br>
+            <input class="update-mobile" onkeydown="entry1(event,'update-address')" id="update-mobile" type="number"> <br>
+            <br>
+
+            <label for="update-address">Address</label> <br>
+            <input class="update-address" onkeydown="entry1(event,'update-jobwork')" id="update-address" type="text"> <br>
+            <br>
+
+            <label for="update-jobwork" onkeydown="entry(event)">Job</label> <br>
+            <input class="update-jobwork" onkeydown="entry(event)" id="update-jobwork" type="text"> <br> <br>
+
+            <button id="btn-update" onclick="update()">Update</button>
+            <button id="update-cancel" onclick="updateCancel()">Cancel</button>
+        </div>
+    </div>
+    <div class="background-modal" id="background-modal"></div>
+    <div class="logout-message" id="logout-message">
+        <div>You have not signed in</div> <br>
+        <a href="/login/login.html">Login</a>
+    </div>
+
+
+
+    <script>
+        let indexUs = localStorage.getItem("indexLogin");
+        let inforUs = JSON.parse(localStorage.getItem("userInfor"));
+        let inforUserName = document.getElementById("user-name");
+        let inforEml = document.getElementById("eml");
+        let usName = JSON.parse(localStorage.getItem("information"))[indexUs].username;
+        let eml = JSON.parse(localStorage.getItem("information"))[indexUs].email;
+        inforUserName.innerHTML = usName;
+        inforEml.innerHTML = eml;
+        let indexUs1;
+        let flag = true;
+        if (inforUs == null) {
+            inforUs = [];
+            indexUs1 = 0;
+        } else {
+            for (let i = 0; i < inforUs.length; i++) {
+                if (inforUs[i].Id == indexUs) {
+                    indexUs1 = i;
+                    flag = true;
+                    break;
+                } else {
+                    flag = false;
+                    indexUs1 = Number(i) + 1;
+                }
+            }
+        }
+        if (inforUs != null) {
+            if (flag == true) {
+                let getIdName = document.getElementById("name");
+                let getIdAge = document.getElementById("age");
+                let getIdMobile = document.getElementById("mobile");
+                let getIdAddress = document.getElementById("address");
+                let getIdJobwork = document.getElementById("jobwork");
+                getIdName.innerHTML = inforUs[indexUs1].Name;
+                getIdAge.innerHTML = inforUs[indexUs1].Age;
+                getIdMobile.innerHTML = inforUs[indexUs1].Mobile;
+                getIdAddress.innerHTML = inforUs[indexUs1].Address;
+                getIdJobwork.innerHTML = inforUs[indexUs1].Jobwork;
+            }
+        }
+        let user = document.getElementById("user");
+        if (inforUs == null || inforUs[indexUs].Name == "") {
+            let getIdUserName = document.getElementById("user-name");
+            user.innerHTML = getIdUserName.innerHTML;
+        } else {
+            let Name = JSON.parse(localStorage.getItem("userInfor"))[indexUs].Name;
+            user.innerHTML = Name;
+        }
+
+
+
+
+        // // check sự kiện handle click 
+        // hideTable("menu");
+        // function hideTable(id) {
+        //     let getId = document.getElementById(id);
+        //     if (getId.style.display === "block") {
+        //         document.addEventListener("click", function handleClick(event) {
+        //             let check = event.target.classList.contains(id);
+        //             console.log(check);
+        //             if (check == false) {
+        //                 getId.setAttribute("style", "display:none");
+        //             }
+        //         });
+        //     }
+        // }
+        // Hàm gán xuất giá trị tên đăng nhập và email
+        function updateInfor(id, value) {
+            let getId = document.getElementById(id);
+            if (inforUs[indexUs1] != undefined) {
+                getId.innerHTML = inforUs[indexUs1][value];
+            }
+        }
+        // Hàm cập nhật thông tin tài khoản
+        function update() {
+            let usName = document.getElementById("update-name").value;
+            let usAge = document.getElementById("update-age").value;
+            let usMobile = document.getElementById("update-mobile").value;
+            let usAddess = document.getElementById("update-address").value;
+            let usJobwork = document.getElementById("update-jobwork").value;
+            let obj = {
+                Id: indexUs,
+                Name: usName,
+                Age: usAge,
+                Mobile: usMobile,
+                Address: usAddess,
+                Jobwork: usJobwork
+            }
+            let getUserInfor = localStorage.getItem("userInfor");
+            if (getUserInfor == null) {
+                getUserInfor = [];
+                getUserInfor.push(obj);
+                localStorage.setItem("userInfor", JSON.stringify(getUserInfor));
+                updateInfor("name", "Name");
+                updateInfor("age", "Age");
+                updateInfor("mobile", "Mobile");
+                updateInfor("address", "Address");
+                updateInfor("jobwork", "Jobwork");
+                let upInfor = document.getElementById("update-infor");
+                upInfor.setAttribute("style", "display:none");
+                return;
+            } else {
+                if (indexUs1 == undefined) {
+                    inforUs.push(obj);
+                    localStorage.setItem("userInfor", JSON.stringify(inforUs));
+                    updateInfor("name", "Name");
+                    updateInfor("age", "Age");
+                    updateInfor("mobile", "Mobile");
+                    updateInfor("address", "Address");
+                    updateInfor("jobwork", "Jobwork");
+                    let upInfor = document.getElementById("update-infor");
+                    upInfor.setAttribute("style", "display:none");
+
+                } else {
+                    inforUs[indexUs1] = obj;
+                    localStorage.setItem("userInfor", JSON.stringify(inforUs));
+                    updateInfor("name", "Name");
+                    updateInfor("age", "Age");
+                    updateInfor("mobile", "Mobile");
+                    updateInfor("address", "Address");
+                    updateInfor("jobwork", "Jobwork");
+                    let upInfor = document.getElementById("update-infor");
+                    upInfor.setAttribute("style", "display:none");
+                }
+            }
+        }
+        // Hàm nhấn Enter thay cho nút
+        function entry(event) {
+            if (event.key == "Enter") {
+                update();
+            }
+        }
+        // Hàm ấn Enter thay cho chuyển Tab
+        function entry1(event, input) {
+            if (event.key == "Enter") {
+                let idInput = document.getElementById(input);
+                idInput.focus();
+            }
+        }
+
+        // Lưu giá trị thông tin người dùng trước đó
+        function currentInfor(id, gt) {
+            let getId = document.getElementById(id);
+            if (inforUs[indexUs1] != undefined) {
+                getId.value = inforUs[indexUs1][gt];
+            }
+        }
+        // Hàm ấn nút cập nhật
+        function updateEntry() {
+            let updateInfor = document.getElementById("update-infor");
+            updateInfor.setAttribute("style", "display:block");
+            currentInfor("update-name", "Name");
+            currentInfor("update-age", "Age");
+            currentInfor("update-mobile", "Mobile");
+            currentInfor("update-address", "Address");
+            currentInfor("update-jobwork", "Jobwork");
+
+        }
+        // Hàm ấn nút hủy cập nhật
+        function updateCancel() {
+            let upInfor = document.getElementById("update-infor");
+            upInfor.setAttribute("style", "display:none");
+        }
+        // Hàm ẩn hiện con mắt xem mật khẩu
+        function showPassword(input, icon) {
+            let getId = document.getElementById(input);
+            let geticon = document.getElementById(icon);
+            if (getId.type == "password") {
+                getId.type = "text";
+                geticon.classList.remove("fa-eye");
+                geticon.classList.add("fa-eye-slash");
+            } else {
+                getId.type = "password";
+                geticon.classList.remove("fa-eye-slash");
+                geticon.classList.add("fa-eye");
+            }
+        }
+        // Hàm ẩn hiện con mắt xem mật khẩu nhập lại
+        function showList() {
+            let menu = document.getElementById("menu");
+            if (menu.style.display == "" || menu.style.display == "none") {
+                menu.setAttribute("style", "display:block");
+            } else {
+                menu.setAttribute("style", "display:none");
+            }
+        }
+        // Hàm kiểm tra xem người dùng đang đăng nhập hay đăng xuất rồi
+        function check() {
+            let index = localStorage.getItem("indexLogin");
+            let logOutMessage = document.getElementById("logout-message");
+            let backgroundModal = document.getElementById("background-modal")
+            if (index == null) {
+                backgroundModal.setAttribute("style", "display:block");
+                logOutMessage.setAttribute("style", "display:block");
+            } else {
+                backgroundModal.setAttribute("style", "display:none");
+                logOutMessage.setAttribute("style", "display:none");
+            }
+        }
+        // Hàm đăng xuất
+        function logOut() {
+            let index = localStorage.getItem("indexLogin");
+            localStorage.setItem("boolLogin", "false");
+            localStorage.setItem("indexLogout", index);
+            localStorage.removeItem("indexLogin");
+            window.location.href = "/login/login.html"
+        }
+        // Hàm ẩn hiện hộp đổi mật khẩu
+        function showChangeBox() {
+            let changePasswordModal = document.getElementById("changePassword-modal");
+            let changePassword = document.getElementById("changePassword");
+            let menu = document.getElementById("menu");
+            changePasswordModal.setAttribute("style", "display:block");
+            changePassword.setAttribute("style", "display:block");
+            menu.setAttribute("style", "display:none");
+        }
+        // Hàm hủy đổi mật khẩu
+        function cancel() {
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            let changePasswordModal = document.getElementById("changePassword-modal");
+            let changePassword = document.getElementById("changePassword");
+            changePasswordModal.setAttribute("style", "display:none");
+            changePassword.setAttribute("style", "display:none");
+        }
+        // Hàm kiểm tra giá trị mật khẩu người dùng nhập vào có trùng trong bộ nhớ hay không
+        function checkInput(id) {
+            let getIndex = Number(localStorage.getItem("index"));
+            let getUserInput = JSON.parse(localStorage.getItem("information"));
+            let idInput = document.getElementById(id).value;
+            if (id == "oldPassword") {
+                if (idInput !== getUserInput[getIndex].password) {
+                    let oldPasswordError = document.getElementById("oldPasswordError");
+                    oldPasswordError.setAttribute("style", "display:block;color:red");
+                } else {
+                    oldPasswordError.setAttribute("style", "display:none");
+                    return true;
+                }
+            } else {
+                if (idInput == getUserInput[getIndex].password) {
+                    let passwordExits = document.getElementById("passwordExits");
+                    passwordExits.setAttribute("style", "display:block;color:red");
+                } else {
+                    passwordExits.setAttribute("style", "display:none");
+                    return true;
+                }
+            }
+        }
+        // Hàm kiểm tra và so sánh khi ấn vào nút lưu để lưu mật khẩu mới
+        function changePassword() {
+            let getUserInput = JSON.parse(localStorage.getItem("information"));
+            let getIndex = Number(localStorage.getItem("index"));
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            let confirmPasswordError = document.getElementById("confirmPasswordError");
+            if (checkInput("oldPassword") == true && checkInput("password") == true) {
+                if (password == confirmPassword) {
+                    getUserInput[getIndex].password = password;
+                    localStorage.setItem("information", JSON.stringify(getUserInput));
+                    confirmPasswordError.setAttribute("style", "display:none");
+                    alert("Bạn đã đổi mật khẩu thành công");
+                    document.getElementById("password").value = "";
+                    document.getElementById("oldPassword").value = "";
+                    document.getElementById("confirmPassword").value = "";
+                    cancel();
+                } else {
+                    confirmPasswordError.setAttribute("style", "display:block;color:red");
+                }
+            }
+        }
+        // Hàm hiện bảng thông tin người dùng
+        function infor() {
+            let userInforModal = document.getElementById("user-infor-modal");
+            userInforModal.setAttribute("style", "display:block");
+            let userInfor = document.getElementById("user-infor");
+            userInfor.setAttribute("style", "display:block");
+            let menu = document.getElementById("menu");
+            menu.setAttribute("style", "display:none");
+        }
+        // Hàm đóng bảng thông tin người dùng
+        function userOut() {
+            let userInfor = document.getElementById("user-infor");
+            userInfor.setAttribute("style", "display:none");
+            let userInforModal = document.getElementById("user-infor-modal");
+            userInforModal.setAttribute("style", "display:none");
+            location.reload();
+
+        }
+    </script>
+</body>
+
+</html>
