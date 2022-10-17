@@ -78,10 +78,14 @@
         background-repeat: no-repeat;
         background-size: 100% 100%;
         border-radius: 20px;
+        margin-right: 10px;
+        /* border: 2px solid red; */
     }
 
     #logo:hover {
-        box-shadow: 3px 10px 10px yellow, inset 0px 10px 5px rgb(13, 134, 19);
+        box-shadow: 3px 10px 10px yellow,
+            inset -5px -5px 3px rgb(13, 134, 19),
+            inset 1px 1px 1px rgb(13, 134, 19);
         border-radius: 20px;
         cursor: pointer;
     }
@@ -103,8 +107,9 @@
         box-sizing: border-box;
         padding: 0px 20px 0px 0px;
         box-shadow: 5px 5px 3px,
-        inset -5px 5px 5px rgb(143, 242, 5);
+            inset -5px 5px 5px rgb(143, 242, 5);
         border-radius: 10px;
+        margin-left: 10px;
 
     }
 
@@ -118,7 +123,7 @@
     .menu-list-number .listItems {
         box-sizing: border-box;
         /* border: 2px solid blue; */
-        font-size: 12px;
+        font-size: 16px;
         width: 90%;
         line-height: 60px;
         text-align: right;
@@ -132,15 +137,16 @@
         background-color: rgb(54, 231, 30);
         font-family: Arial, Helvetica, sans-serif;
         box-shadow: 5px 5px 3px yellow,
-        inset -5px 5px 5px rgb(143, 242, 5);
+            inset -5px 5px 5px rgb(143, 242, 5);
     }
 
     #menu {
         position: absolute;
         top: 100px;
         right: 5px;
-        width: 10 0px;
         display: none;
+        border: 5px double red;
+        border-radius: 10px;
     }
 
     .header i:hover {
@@ -154,7 +160,7 @@
         border-bottom: 1px solid red;
         padding: 10px;
         font-size: 20px;
-        border-radius: 2px;
+        border-radius: 5px;
     }
 
     #menu div:hover {
@@ -194,7 +200,7 @@
 
     .changePassword {
         position: relative;
-        top: calc( -200vh + 100px);
+        top: calc(-200vh + 100px);
         left: 42%;
         width: 330px;
         height: 450px;
@@ -263,7 +269,7 @@
 
     .user-infor {
         position: relative;
-        top: calc( -100vh + 100px);
+        top: calc(-100vh + 100px);
         border-radius: 20px;
         background-color: rgb(157, 221, 92);
         box-sizing: border-box;
@@ -273,6 +279,12 @@
         padding: 40px;
         box-shadow: 3px 15px 10px;
         display: none;
+    }
+
+    .user-infor pre {
+        /* border: 2px solid red; */
+        width: 100%;
+        font-size: 14px;
     }
 
     #user-infor-modal {
@@ -290,7 +302,7 @@
         border: 2px solid red;
         top: calc(-100vh - 200px);
         width: 400px;
-        height: 370px;
+        height: 380px;
         margin: 0 auto;
         box-sizing: border-box;
         border-radius: 20px;
@@ -322,7 +334,7 @@
     }
 
     .update-infor button {
-        top: 5px;
+        top: 7px;
         border-radius: 10px;
         position: relative;
         margin: 10px 0px 0px 20px;
@@ -365,30 +377,25 @@
 
     }
 
-    .body-page .body-list {
-        /* border: 2px solid blue; */
+    .body-list {
         width: 15%;
         height: 100%;
         box-sizing: border-box;
         padding: 10px;
-        background-color: rgb(84, 162, 74);
-        /* border-top: 5px double; */
-        /* border-right: 5px double; */
-        box-shadow: inset 5px 10px 5px 5px rgb(5, 115, 5);
-
+        background-color: rgb(128, 222, 115);
     }
 
-    .body-page .body-content {
-        /* border: 2px solid yellow; */
-        width: 85%;
-        height: 100%;
+    .body-list-items {
+        /* border: 2px solid blue; */
+        width: 100%;
+        height: 70%;
         box-sizing: border-box;
         padding: 10px;
-        background-color: white;
-        box-shadow: inset 5px 10px rgb(177, 171, 171);
-        /* border-top: 2px solid; */
-
+        background-color: rgb(84, 162, 74);
+        box-shadow: inset 5px 10px 5px 5px rgb(5, 115, 5),
+            inset 5px -2px 1px rgb(5, 115, 5);
     }
+
 
     .news {
         /* border: 2px solid yellow; */
@@ -402,11 +409,103 @@
         text-align: center;
         font-size: large;
     }
-    .news:hover{
-        box-shadow:5px 10px 5px rgb(232, 232, 61),
+
+    .news:hover {
+        box-shadow: 5px 10px 5px rgb(232, 232, 61),
             inset -5px -5px 0px 2px rgb(19, 234, 19);
-            color: red;
-            font-size: larger;
+        color: red;
+        font-size: larger;
+        cursor: pointer;
+    }
+
+    .contact {
+        border: 4px double red;
+        height: calc(30% - 10px);
+        margin: 10px 0 10px 0;
+        box-sizing: border-box;
+        padding: 10px;
+
+    }
+
+    .contact p {
+        border-bottom: 2px solid red;
+        height: 30px;
+        line-height: 30px;
+        font-size: 18px;
+    }
+
+    .contact .contact-icons {
+        /* border: 2px solid blue; */
+        width: 50px;
+        height: 30px;
+    }
+
+    .contact .fa:hover {
+        box-shadow: 3px 5px 3px,
+            inset -1px -1px 0px 1px rgb(19, 234, 19);
+        border-radius: 2px;
+        background-color: rgb(28, 230, 28);
+    }
+
+    .body-page .body-content {
+        /* border: 2px solid yellow; */
+        width: 85%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        background-color: white;
+        box-shadow: inset 5px 10px rgb(177, 171, 171);
+        padding: 20px;
+    }
+
+    .main-content-modal {
+        background-image: url(/Lybrary/y-nghia-hoa-anh-dao-960.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        opacity: 80%;
+        /* border: 2px solid red; */
+        height: 100%;
+        opacity: 50%;
+    }
+
+    .main-content {
+        position: relative;
+        top: -100%;
+        /* border: 2px solid red; */
+        height: 100%;
+        padding: 50px;
+        box-sizing: border-box;
+    }
+
+    .main-content .main-content-header {
+        /* border: 2px solid blue; */
+        height: 30%;
+    }
+
+    .main-content .main-content-footer {
+        height: 10%;
+    }
+
+    .main-content .main-content-header p {
+        font-size: larger;
+    }
+
+    .main-content .main-content-body {
+        height: 60%;
+        /* border: 5px double blue; */
+        margin: 0 200px 0 200px;
+        display: flex;
+        padding: 0 100px 0 100px;
+    }
+
+    .mcbody-panner {
+        border: 2px solid red;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    #banner {
+        border-radius: 10px;
     }
 </style>
 
@@ -419,19 +518,19 @@
                 <div id="logo"></div>
                 <div id="menuList">
                     <div class="menu-list-number">
-                        <span class="listItems">Beginner level</span>
+                        <span class="listItems">Beginner</span>
                         <i onclick="showList()" class="fa fa-chevron-down"></i>
                     </div>
                     <div class="menu-list-number">
-                        <span class="listItems">Elementary level</span>
+                        <span class="listItems">Elementary</span>
                         <i onclick="showList()" class="fa fa-chevron-down"></i>
                     </div>
                     <div class="menu-list-number">
-                        <span class="listItems">Intermediate level</span>
+                        <span class="listItems">Intermediate</span>
                         <i onclick="showList()" class="fa fa-chevron-down"></i>
                     </div>
                     <div class="menu-list-number">
-                        <span class="listItems">Advanced level</span>
+                        <span class="listItems">Advanced</span>
                         <i onclick="showList()" class="fa fa-chevron-down"></i>
                     </div>
                     <div class="menu-list-number">
@@ -459,10 +558,40 @@
         </div>
         <div class="body-page">
             <div class="body-list">
-                <div class="news">Daily News</div>
-                <div class="news">Dictionary</div>
+                <div class="body-list-items">
+                    <div class="news">Daily News</div>
+                    <div class="news">Dictionary</div>
+                </div>
+                <div class="contact">
+                    <p>Contact Us</p>
+                    <a href="https://mail.google.com/mail/u/0/#inbox" class="contact-icons"><i
+                            class="fa-solid fa-envelope fa"></i></a><br>
+                    <a href="#" class="contact-icons"><i class="fa-solid fa-phone fa"></i></a> <br>
+                    <a href="https://www.facebook.com/Fongdeying" class="contact-icons"><i
+                            class="fa-brands fa-facebook fa"></i></a> <br>
+                </div>
             </div>
-            <div class="body-content"></div>
+            <div class="body-content">
+                <div class="main-content-modal"></div>
+                <div class="main-content">
+                    <div class="main-content-header">
+                        <p>
+                            Chào mừng bạn quay trở lại với Tiếng Nhật AXJapan. <br>
+                            Hôm nay chúng ta hãy tiếp tục bài học hôm qua nhé. <br>
+                            Chác bạn một ngày học vui vẻ và hiệu quả. <br> <br>
+
+                            Trong thời gian học hành vất vả quá hãy xem qua các bức ảnh về đất nước Nhật Bản xinh đẹp để
+                            lấy thêm động lực nhé
+                        </p>
+                    </div>
+                    <div class="main-content-body">
+                        <div class="mcbody-panner">
+                            <img id="banner" src="/Lybrary/banner1.jfif" width="100%" height="100%" alt="error">
+                        </div>
+                    </div>
+                    <div class="main main-content-footer"></div>
+                </div>
+            </div>
         </div>
 
 
@@ -491,13 +620,16 @@
         <div id="user-infor-modal"></div>
         <div id="user-infor" class="user-infor">
             <h1>Account information</h1> <br>
-            Username: <span id="user-name"></span> <br>
-            Name: <span id="name"></span> <br>
-            Age: <span id="age"></span> <br>
-            Email: <span id="eml"></span> <br>
-            Mobile number: <span id="mobile"></span> <br>
-            Address: <span id="address"></span> <br>
-            Job: <span id="jobwork"></span> <br> <br>
+            <pre>
+Username:       <span id="user-name"></span>
+Name:           <span id="name"></span>
+Age:            <span id="age"></span>
+Email:          <span id="eml"></span>
+Mobile number:  <span id="mobile"></span>
+Address:        <span id="address"></span>
+Job:            <span id="jobwork"></span>
+            </pre>
+
             <div id="update-notifi" class="update-notifi">(*) <a onclick="updateEntry()">Update information</a></div>
             <div id="nofi-cancel" class="update-notifi">(x) <a onclick="userOut()">Close</a></div>
 
@@ -511,13 +643,11 @@
             <input class="update-age" onkeydown="entry1(event,'update-mobile')" id="update-age" type="number"> <br>
 
             <label for="update-mobile">Mobile number</label> <br>
-            <input class="update-mobile" onkeydown="entry1(event,'update-address')" id="update-mobile" type="number"> <br>
+            <input class="update-mobile" onkeydown="entry1(event,'update-address')" id="update-mobile" type="number">
             <br>
-
             <label for="update-address">Address</label> <br>
-            <input class="update-address" onkeydown="entry1(event,'update-jobwork')" id="update-address" type="text"> <br>
+            <input class="update-address" onkeydown="entry1(event,'update-jobwork')" id="update-address" type="text">
             <br>
-
             <label for="update-jobwork" onkeydown="entry(event)">Job</label> <br>
             <input class="update-jobwork" onkeydown="entry(event)" id="update-jobwork" type="text"> <br> <br>
 
@@ -582,6 +712,18 @@
             user.innerHTML = Name;
         }
 
+        let image = ["/Lybrary/banner1.jfif", "/Lybrary/banner2.jfif"];
+        let banner = document.getElementById("banner");
+        let count = 0;
+        let showBanner = () => {
+            banner.src = image[count];
+            count++;
+            if (count == image.length) {
+                count = 0;
+            }
+
+        }
+        setInterval(showBanner, 2000);
 
 
 
