@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Homepage</title>
+    <title>Beginner</title>
 </head>
 <style>
     * {
@@ -101,8 +101,9 @@
     }
 
     .menu-list-number {
-        background-color: rgb(38, 238, 28);
         display: flex;
+        background-color: rgb(38, 238, 28);
+
         /* border: 2px solid yellow; */
         width: calc(100% / 6);
         box-sizing: border-box;
@@ -139,6 +140,7 @@
         font-family: Arial, Helvetica, sans-serif;
         box-shadow: 5px 5px 3px yellow,
             inset -5px 5px 5px rgb(143, 242, 5);
+
     }
 
     #menu {
@@ -427,6 +429,7 @@
         font-size: larger;
         cursor: pointer;
         background-color: rgb(74, 228, 35);
+
     }
 
     .contact {
@@ -461,11 +464,27 @@
     .body-page .body-content {
         /* border: 2px solid yellow; */
         width: 84%;
-        height: calc(100% - 1vh);
+        height:calc(100% - 1vh);
         box-sizing: border-box;
         background-color: white;
         box-shadow: inset 5px 10px rgb(177, 171, 171);
         padding: 10px 0 0 5px;
+    }
+
+    .main-text {
+        position: relative;
+        top: -550px;
+        margin: 30px 80px 0 80px;
+        text-align: justify;
+    }
+
+    .main-text p {
+        padding: 20px;
+        border-radius: 6px;
+        background-color: rgb(151, 234, 92);
+        border: 2px solid red;
+        height: 400px;
+        overflow: auto;
     }
 
     .main-content-modal {
@@ -476,6 +495,7 @@
         /* border: 2px solid red; */
         height: 100%;
         opacity: 50%;
+        /* position: fixed;  */
     }
 
     .main-content {
@@ -483,29 +503,113 @@
         top: -100%;
         /* border: 2px solid red; */
         height: 100%;
-        padding: 50px;
+        padding: 100px;
         box-sizing: border-box;
+        display: none;
     }
 
-    .main-content .main-content-header {
-        /* border: 2px solid blue; */
-        height: 30%;
+    .hira-img {
+        position: absolute;
+        width: 90%;
+        height: 80%;
+        border: 2px solid blue;
+        top: 0%;
+        left: 0%;
+        background-image: url(/Lybrary/hiragana.png);
+        background-repeat: repeat;
+        background-size: 100% 100%;
+        display: none;
+        box-sizing: border-box;
+        margin: 60px;
     }
 
-    .main-content .main-content-footer {
-        height: 10%;
+    .kata-img {
+        position: absolute;
+        width: 90%;
+        height: 80%;
+        border: 2px solid blue;
+        top: 0%;
+        left: 0%;
+        background-image: url(/Lybrary/katakana.png);
+        background-repeat: repeat;
+        background-size: 100% 100%;
+        display: none;
+        box-sizing: border-box;
+        margin: 60px;
     }
 
-    .main-content .main-content-header p {
-        font-size: larger;
+    .am-ghep-img {
+        position: absolute;
+        width: 90%;
+        height: 80%;
+        border: 2px solid blue;
+        top: 0%;
+        left: 0%;
+        background-image: url(/Lybrary/am_ghep.jpg);
+        background-repeat: repeat;
+        background-size: 100% 100%;
+        display: none;
+        box-sizing: border-box;
+        margin: 60px;
     }
 
-    .main-content .main-content-body {
-        height: 60%;
-        /* border: 5px double blue; */
-        margin: 0 200px 0 200px;
+    .back-icon {
+        position: absolute;
+        top: 3%;
+        left: 4%;
+        display: none;
+    }
+
+    .main-content .selection {
+        /* border: 2px solid red; */
+        height: 50%;
         display: flex;
-        padding: 0 100px 0 100px;
+        font-size: 50px;
+        line-height: 160px;
+        justify-content: center;
+    }
+
+    .alphabe {
+        /* border: 2px solid blue; */
+        width: 50%;
+        height: 100%;
+        text-align: center;
+    }
+
+    .hiragana {
+        background-color: yellowgreen;
+        border-radius: 10px;
+    }
+
+    .hiragana:hover {
+        opacity: 70%;
+        border: 2px solid red;
+        cursor: pointer;
+
+    }
+
+    .katakana {
+        background-color: orange;
+        border-radius: 10px;
+    }
+
+    .katakana:hover {
+        opacity: 70%;
+        border: 2px solid red;
+        cursor: pointer;
+
+    }
+
+    .am-ghep {
+        background-color: rgb(44, 236, 44);
+        border-radius: 10px;
+    }
+
+    .am-ghep:hover {
+        opacity: 70%;
+        border: 2px solid red;
+        cursor: pointer;
+
     }
 
     .mcbody-panner {
@@ -517,9 +621,23 @@
     #banner {
         border-radius: 10px;
     }
+
+    .main-btn,
+    .main-close-btn {
+        width: 100px;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+        position: relative;
+    }
+
+    .main-btn {
+        left: 91%;
+    }
 </style>
 
 <body onload="check()">
+
 
     <div class="container">
         <div class="header">
@@ -527,7 +645,7 @@
                 <div id="logo" onclick="window.location.href = '/Content/index.html'"></div>
                 <div id="menuList">
                     <div class="menu-list-number">
-                        <span class="listItems"><a href="/Content/begin.html" target="_blank">Beginner</a></span>
+                        <span class="listItems"><a href="/Content/begin.html" target="_self">Beginner</a></span>
                     </div>
                     <div class="menu-list-number">
                         <span class="listItems"><a href="" target="#">Elementary</a></span>
@@ -573,31 +691,107 @@
             </div>
             <div class="body-content">
                 <div class="main-content-modal"></div>
-                <div class="main-content">
-                    <div class="main-content-header">
-                        <p>
-                            Chào mừng bạn quay trở lại với Tiếng Nhật AXJapan. <br>
-                            Hôm nay chúng ta hãy tiếp tục bài học hôm qua nhé. <br>
-                            Chúc bạn một ngày học vui vẻ và hiệu quả. <br> <br>
+                <div class="main-text">
+                    <p id="main-text" style="font-family: 'Times New Roman', Times, serif ;font-size:18px">
+                        1. HỌC BẢNG CHỮ CÁI TIẾNG NHẬT HIRAGANA <br>
+                        <br>
+                        Hiragana là chữ tượng thanh, biểu âm (mỗi chữ thể hiện một âm), hình thành dựa trên cách viết
+                        của Kanji nhưng nét viết mềm mại hơn nên còn được gọi là chữ mềm. <br>
+                        <br>
+                        Hiragana được dùng để ghi các từ gốc Nhật, biểu âm cho Kanji và biểu thị các thành tố ngữ pháp
+                        như trợ từ, trợ động từ và đuôi biến đổi của động từ, tính từ.<br>
+                        <br>
+                        2. BẢNG CHỮ CÁI HIRAGANA ĐẦY ĐỦ<br>
+                        <br>
+                        Bảng chữ cái Hiragana khá đầy đủ gồm có 46 âm cơ bản và những dạng biến thể của nó gồm có : âm
+                        đục, âm bán đục, âm ngắt, trường âm và âm ghép .<br>
+                        Cụ thể, Hiragana có 5 nguyên âm cơ bản là あ ( a ) – い ( i ) – う ( u ) – え ( e ) – お ( o ), những
+                        nguyên âm này đứng sau những phụ âm ( k, s, t, n, h, m, y, r, g, z, d, b, p ) và bán nguyên âm (
+                        j, w ) để tạo thành đơn vị chức năng âm .<br>
+                        Đặc biệt, phụ âm ん ( n ) có tính năng là đứng cuối những âm khác tạo thành một từ .<br>
 
-                            Trong thời gian học hành vất vả quá hãy xem qua các bức ảnh về đất nước Nhật Bản xinh đẹp để
-                            lấy thêm động lực nhé
-                        </p>
-                    </div>
-                    <div class="main-content-body">
-                        <div class="mcbody-panner">
-                            <img id="banner" src="/Lybrary/banner1.jfif" width="100%" height="100%" alt="error">
+                        Bảng chữ cái Hiragana cơ bản<br>
+                        <br>
+                        46 âm cơ bản trong bảng chữ cái Hiragana<br>
+                        <br>
+                        あ a い i う u え e お o <br>
+                        か ka き ki く ku け ke こ ko<br>
+                        さ sa し shi す su せ se そ so<br>
+                        た ta ち chi つ tsu て te と to<br>
+                        な na に ni ぬ nu ね ne の no<br>
+                        は ha ひ hi ふ fu へ he ほ ho<br>
+                        ま ma み mi む mu め me も mo<br>
+                        や ya ゆ yu よ yo<br>
+                        ら ra り ri る ru れ re ろ ro<br>
+                        わ wa を wo<br>
+                        ん n<br>
+                        <br>
+                        Âm đục, âm bán đục trong Hiragana <br>
+
+                        Âm đục: Thêm dấu「〃」(gọi là tenten) vào phía trên bên phải các chữ cái hàng Ka, Sa, Ta, Ha.<br>
+
+                        Âm bán đục: Thêm dấu「〇」(gọi là maru) vào phía trên bên phải các chữ cái của hàng Ha.<br>
+                        <br>
+                        が ga ぎ gi ぐ gu げ ge ご go<br>
+                        ざ za じ ji ず zu ぜ ze ぞ zo<br>
+                        だ da ぢ di/ji ず du/zu で de ど do<br>
+                        ば ba び bi ぶ bu べ be ぼ bo<br>
+                        ぱ pa ぴ pi ぷ pu ぺ pe ぽ po<br>
+                        <br>
+                        Âm ghép trong bảng Hiragana<br>
+                        <br>
+                        Âm ghép trong bảng chữ cái Hiragana được tạo thành bằng cách ghép các chữ cái thuộc hàng い với 3
+                        chữ cái や、ゆ、よ.<br>
+                        <br>
+                        きゃ kya きゅ kyu きょ kyo<br>
+                        しゃ sha しゅ shu しょ sho<br>
+                        ちゃ cha ちゅ chu ちょ cho<br>
+                        にゃ nya にゅ nyu にょ nyo<br>
+                        ひゃ hya ひゅ hyu ひょ hyo<br>
+                        みゃ mya みゅ myu みょ myo<br>
+                        りゃ rya りゅ ryu りょ ryo<br>
+                        ぎゃgya ぎゅ gyu ぎょ gyo<br>
+                        じゃ ja じゅ ju じょ jo<br>
+                        びゃ bya びゅ byu びょ byo<br>
+                        ぴゃ pya ぴゅ pyu ぴょ pyo<br>
+                        <br>
+                        CÁCH VIẾT CHỮ CÁI HIRAGANA<br>
+                        <br>
+                        Chữ cái Hiragana khác hoàn toàn với hệ thống chữ viết latinh hiện tại chúng ta đang sử dụng, vì
+                        vậy có thể nói cách viết chữ cái Hiragana sao cho chuẩn đẹp là tương đối khó khăn khi mới bắt
+                        đầu học.<br>
+                        Tuy nhiên những bạn cũng đừng quá lo ngại, chỉ cần ghi nhớ một quy tắc dưới đây và rèn luyện
+                        nhiều lần là sẽ ổn thôi .<br>
+
+                        ・ Nét bên trái viết trước, nét bên phải viết sau<br>
+                        ・ Nét bên trên viết trước, nét bên dưới viết sau<br>
+                        ・ Nét ngang viết trước, nét sổ viết sau<br>
+                        ・ Căn chỉnh cho chữ được cân đối, nằm gọn trong một ô vuông<br>
+                    </p>
+                    <button class="main-btn" id="main-btn" onclick="showCart()">Đi tiếp nhé</button>
+                </div>
+                <div class="main-content" id="main-content">
+                    <button class="main-close-btn" id="main-close-btn" onclick="hideCart()">Back</button>
+                    <div class="box">
+                        <div class="selection">
+                            <div class="alphabe hiragana" onclick="show('hiragana')">Hiragana</div>
+                            <div class="alphabe katakana" onclick="show('katakana')">Katakana</div>
                         </div>
+                        <div class="selection am-ghep" onclick="show('am-ghep')">Âm ghép</div>
                     </div>
-                    <div class="main main-content-footer"></div>
+                    <i class="fa-solid fa-left-long back-icon fa-2x" id="back-icon" onclick="hide('hiragana')"></i>
+                    <div class="hira-img" id="hiragana"></div>
+                    <div class="kata-img" id="katakana"></div>
+                    <div class="am-ghep-img" id="am-ghep"></div>
+
                 </div>
             </div>
         </div>
         <!-- Bảng thông tin acount -->
-        <div id="menu" class="menu" onclick="hideTable()">
+        <div id="menu">
             <div id="infor" onclick="infor()">Account information</div>
             <div id="change-pass" onclick="showChangeBox()">Change Password</div>
-            <div class="menu">My study schedule</div>
+            <div>My study schedule</div>
             <div id="logout" onclick="logOut()">Log out</div>
         </div>
 
@@ -716,48 +910,56 @@ Job:            <span id="jobwork"></span>
             user.innerHTML = Name;
         }
 
-        let image = ["/Lybrary/banner1.jfif", "/Lybrary/banner2.jfif", "/Lybrary/banner3.jfif", "/Lybrary/banner4.jfif", "/Lybrary/banner5.jpg", "/Lybrary/banner6.jpg", "/Lybrary/banner7.webp"];
-        let banner = document.getElementById("banner");
-        let count = 0;
-        let showBanner = () => {
-            banner.src = image[count];
-            count++;
-            if (count == image.length) {
-                count = 0;
-            }
-        }
-        setInterval(showBanner, 2000);
-        // fix cứng từ điển
-        let dictionary = [
-            { keyword: "下 (した)", mean: "phía dưới" },
-            { keyword: "上（うえ)", mean: "phía trên" },
-            { keyword: "右（みぎ)", mean: "bên phải" },
-            { keyword: "左（ひだり", mean: "phía trái" },
-            { keyword: "まっすぐ", mean: "đi thẳng" },
-            { keyword: "回り（まわり)", mean: "quay lại" },
-            { keyword: "下着（したぎ)", mean: "áo lót" },
-        ];
-        localStorage.setItem("dictionary", JSON.stringify(dictionary));
-        // Fix cứng bài kiểm tra
-        
-        // check sự kiện handle click 
-        function hideTable() {
-            let getId = document.getElementById("menu");
-            console.log(getId.style.display);
-            if (getId.style.display == "block") {
-                document.addEventListener("click", handleClick);
-                function handleClick(event) {
-                    let check = event.target.classList.contains("menu");
-                    console.log(event.target.classList);
-                    console.log(check);
-                    if (check == false) {
-                        getId.setAttribute("style", "display:none");
-                        document.removeEventListener("click", handleClick);
-                    }
-                }
-            }
-        }
 
+
+        // // check sự kiện handle click 
+        // hideTable("menu");
+        // function hideTable(id) {
+        //     let getId = document.getElementById(id);
+        //     if (getId.style.display === "block") {
+        //         document.addEventListener("click", function handleClick(event) {
+        //             let check = event.target.classList.contains(id);
+        //             console.log(check);
+        //             if (check == false) {
+        //                 getId.setAttribute("style", "display:none");
+        //             }
+        //         });
+        //     }
+        // }
+        // Show các thẻ học
+        function showCart() {
+            let mainText = document.getElementById("main-text");
+            let mainContent = document.getElementById("main-content");
+            let mainBtn = document.getElementById("main-btn");
+            mainText.setAttribute("style", "display:none");
+            mainBtn.setAttribute("style", "display:none");
+            mainContent.setAttribute("style", "display:block");
+        }
+        function hideCart() {
+            let mainText = document.getElementById("main-text");
+            let mainContent = document.getElementById("main-content");
+            let mainBtn = document.getElementById("main-btn");
+            mainText.setAttribute("style", "display:block");
+            mainBtn.setAttribute("style", "display:block");
+            mainContent.setAttribute("style", "display:none");
+        }
+        // Show Hiragana
+        function show(id) {
+            let getID = document.getElementById(id);
+            let backIcon = document.getElementById("back-icon");
+            getID.setAttribute("style", "display:block");
+            backIcon.setAttribute("style", "display:block");
+        }
+        function hide() {
+            let hiraHide = document.getElementById("hiragana");
+            let kataHide = document.getElementById("katakana");
+            let backIcon = document.getElementById("back-icon");
+            let amGhep = document.getElementById("am-ghep")
+            hiraHide.setAttribute("style", "display:none");
+            kataHide.setAttribute("style", "display:none");
+            amGhep.setAttribute("style", "display:none");
+            backIcon.setAttribute("style", "display:none");
+        }
         // Hàm gán xuất giá trị tên đăng nhập và email
         function updateInfor(id, value) {
             let getId = document.getElementById(id);
@@ -877,9 +1079,6 @@ Job:            <span id="jobwork"></span>
             } else {
                 menu.setAttribute("style", "display:none");
             }
-            document.addEventListener("click", hideTable);
-            document.removeEventListener("click", hideTable);
-
         }
         // Hàm kiểm tra xem người dùng đang đăng nhập hay đăng xuất rồi
         function check() {

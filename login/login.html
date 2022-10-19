@@ -232,9 +232,7 @@
         }
         // Hàm kiểm tra điều kiện khi đăng nhập có nhớ mật khẩu hay không
         function checkCheckbox() {
-            console.log("111");
             let checkbox = localStorage.getItem("checkbox");
-            console.log(checkbox);
             let getInforUser = JSON.parse(localStorage.getItem("information"));
             let index = Number(JSON.parse(localStorage.getItem("indexLogout")));
             console.log(index);
@@ -242,7 +240,7 @@
             if (checkbox == "true") {
                 document.getElementById("username").value = getInforUser[index].username;
                 document.getElementById("email").value = getInforUser[index].email;
-                document.getElementById("password").value = getInforUser[index].password;
+                // document.getElementById("password").value = getInforUser[index].password;
                 rememberMe.setAttribute("checked", "true");
             } else {
                 rememberMe.removeAttribute("checked");

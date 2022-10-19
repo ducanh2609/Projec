@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Homepage</title>
+    <title>Test</title>
 </head>
 <style>
     * {
@@ -101,8 +101,9 @@
     }
 
     .menu-list-number {
-        background-color: rgb(38, 238, 28);
         display: flex;
+        background-color: rgb(38, 238, 28);
+
         /* border: 2px solid yellow; */
         width: calc(100% / 6);
         box-sizing: border-box;
@@ -139,6 +140,7 @@
         font-family: Arial, Helvetica, sans-serif;
         box-shadow: 5px 5px 3px yellow,
             inset -5px 5px 5px rgb(143, 242, 5);
+
     }
 
     #menu {
@@ -427,6 +429,7 @@
         font-size: larger;
         cursor: pointer;
         background-color: rgb(74, 228, 35);
+
     }
 
     .contact {
@@ -459,7 +462,7 @@
     }
 
     .body-page .body-content {
-        /* border: 2px solid yellow; */
+        border: 2px solid yellow;
         width: 84%;
         height: calc(100% - 1vh);
         box-sizing: border-box;
@@ -476,50 +479,130 @@
         /* border: 2px solid red; */
         height: 100%;
         opacity: 50%;
+        /* position: fixed;  */
+    }
+
+    .main-text {
+        position: relative;
+        top: -100%;
+        /* border: 2px solid blue; */
+        height: 90%;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+
+    .question {
+        border: 2px solid red;
+        border-radius: 30px;
+        height: 45%;
+        box-sizing: border-box;
+        padding: 20px;
+        line-height: 150px;
+        justify-content: center;
+        text-align: center;
+        overflow: auto;
+        font-size: 70px;
+        background-color: rgb(132, 232, 127);
+    }
+
+    .answer {
+        margin-top: 10px;
+        /* border: 2px solid yellow; */
+        height: 55%;
+        box-sizing: border-box;
+        padding: 20px;
+        /* display: flex; */
+    }
+
+    .answer-result {
+        float: left;
+        border-radius: 20px;
+        width: 25%;
+        border: 2px solid;
+        box-sizing: border-box;
+        line-height: 180px;
+        justify-content: center;
+        text-align: center;
+        overflow: auto;
+        font-size: 70px;
+        background-color: rgb(204, 144, 226);
+        box-shadow: inset -10px 10px 5px rgb(227, 185, 243);
+    }
+
+    .answer-result:hover {
+        background-color: rgb(233, 233, 48);
+        box-shadow: inset -15px 15px 5px rgb(223, 234, 140),
+            10px 15px 10px;
+    }
+
+    .answer-modal {
+        position: relative;
+        top: -57%;
+        margin-top: 10px;
+        /* border: 2px solid yellow; */
+        height: 55%;
+        box-sizing: border-box;
+        padding: 20px;
+        display: none;
     }
 
     .main-content {
+        font-size: 25px;
         position: relative;
         top: -100%;
-        /* border: 2px solid red; */
-        height: 100%;
-        padding: 50px;
-        box-sizing: border-box;
-    }
-
-    .main-content .main-content-header {
-        /* border: 2px solid blue; */
-        height: 30%;
-    }
-
-    .main-content .main-content-footer {
         height: 10%;
-    }
-
-    .main-content .main-content-header p {
-        font-size: larger;
-    }
-
-    .main-content .main-content-body {
-        height: 60%;
-        /* border: 5px double blue; */
-        margin: 0 200px 0 200px;
+        /* border: 2px solid red; */
+        box-sizing: border-box;
         display: flex;
-        padding: 0 100px 0 100px;
+        justify-content: space-around;
+        line-height: 30px;
+        padding: 10px;
+        background-color: rgb(62, 62, 216);
+        /* display: none; */
     }
 
-    .mcbody-panner {
+    .main-content span {
+        position: relative;
+        font-size: 25px;
+        text-align: center;
+        left: -65px;
+        border: 2px solid;
+        width: 50px;
+        box-sizing: border-box;
+        background-color: rgb(143, 143, 219);
+        border-radius: 20px;
+        color: red;
+    }
+
+    .main-content button {
+        font-size: 25px;
+        border-radius: 10px;
+        border: none;
+    }
+
+    .test-menu {
         border: 2px solid red;
-        width: 100%;
-        border-radius: 10px;
+        border-radius: 20px;
+        background-color: rgb(114, 218, 88);
+        width: 80%;
+        margin: 90px;
+        height: 350px;
+        box-sizing: border-box;
+        padding: 20px;
+        font-size: 30px;
     }
 
-    #banner {
-        border-radius: 10px;
+    .test-menu p:hover {
+        font-size: larger;
+        color: red;
+        text-decoration: underline;
+        cursor: pointer;
     }
 </style>
 
 <body onload="check()">
+
 
     <div class="container">
         <div class="header">
@@ -527,7 +610,7 @@
                 <div id="logo" onclick="window.location.href = '/Content/index.html'"></div>
                 <div id="menuList">
                     <div class="menu-list-number">
-                        <span class="listItems"><a href="/Content/begin.html" target="_blank">Beginner</a></span>
+                        <span class="listItems"><a href="/Content/begin.html" target="_self">Beginner</a></span>
                     </div>
                     <div class="menu-list-number">
                         <span class="listItems"><a href="" target="#">Elementary</a></span>
@@ -573,31 +656,35 @@
             </div>
             <div class="body-content">
                 <div class="main-content-modal"></div>
-                <div class="main-content">
-                    <div class="main-content-header">
-                        <p>
-                            Chào mừng bạn quay trở lại với Tiếng Nhật AXJapan. <br>
-                            Hôm nay chúng ta hãy tiếp tục bài học hôm qua nhé. <br>
-                            Chúc bạn một ngày học vui vẻ và hiệu quả. <br> <br>
-
-                            Trong thời gian học hành vất vả quá hãy xem qua các bức ảnh về đất nước Nhật Bản xinh đẹp để
-                            lấy thêm động lực nhé
-                        </p>
+                <div class="main-text">
+                    <div class="test-menu" id="test-menu">
+                        <p id="beginner-test" onclick="beginnerTestShow()">1. Bài thi cho người mới bắt đầu</p>
+                        <p id="elementary-test">2. Bài thì trình độ sơ cấp</p>
                     </div>
-                    <div class="main-content-body">
-                        <div class="mcbody-panner">
-                            <img id="banner" src="/Lybrary/banner1.jfif" width="100%" height="100%" alt="error">
-                        </div>
+                    <div id="question" class="question" style="display: none;">あ</div>
+                    <div class="answer" id="answer" style="display: none;">
+                        <div id="answer-1" class="answer-result" onclick="checkAnswer('answer-1','question')">a</div>
+                        <div id="answer-2" class="answer-result" onclick="checkAnswer('answer-2','question')">i</div>
+                        <div id="answer-3" class="answer-result" onclick="checkAnswer('answer-3','question')">u</div>
+                        <div id="answer-4" class="answer-result" onclick="checkAnswer('answer-4','question')">e</div>
                     </div>
-                    <div class="main main-content-footer"></div>
+                    <div class="answer-modal" id="answer-modal"></div>
+                </div>
+                <div class="main-content" id="main-content">
+                    Câu đúng:<span class="result-property" id="right-ans">0</span>
+                    Câu sai:<span class="result-property" id="wrong-ans">0</span>
+                    Điểm:<span class="result-property" id="point">0</span>
+                    <button id="btn-back-ques" style="display:none" onclick="backQues()">Back</button>
+                    <button id="btn-next-ques" style="display: none; width:110px" onclick="nextQues()">Next</button>
+                    <button id="btn-complete" style="display:none" onclick="complete()">Complete</button>
                 </div>
             </div>
         </div>
         <!-- Bảng thông tin acount -->
-        <div id="menu" class="menu" onclick="hideTable()">
+        <div id="menu">
             <div id="infor" onclick="infor()">Account information</div>
             <div id="change-pass" onclick="showChangeBox()">Change Password</div>
-            <div class="menu">My study schedule</div>
+            <div>My study schedule</div>
             <div id="logout" onclick="logOut()">Log out</div>
         </div>
 
@@ -707,6 +794,7 @@ Job:            <span id="jobwork"></span>
                 getIdJobwork.innerHTML = inforUs[indexUs1].Jobwork;
             }
         }
+        // Hiện tên người dùng trong trang web
         let user = document.getElementById("user");
         if (inforUs == null || inforUs[indexUs].Name == "") {
             let getIdUserName = document.getElementById("user-name");
@@ -715,49 +803,271 @@ Job:            <span id="jobwork"></span>
             let Name = JSON.parse(localStorage.getItem("userInfor"))[indexUs].Name;
             user.innerHTML = Name;
         }
-
-        let image = ["/Lybrary/banner1.jfif", "/Lybrary/banner2.jfif", "/Lybrary/banner3.jfif", "/Lybrary/banner4.jfif", "/Lybrary/banner5.jpg", "/Lybrary/banner6.jpg", "/Lybrary/banner7.webp"];
-        let banner = document.getElementById("banner");
-        let count = 0;
-        let showBanner = () => {
-            banner.src = image[count];
-            count++;
-            if (count == image.length) {
-                count = 0;
-            }
-        }
-        setInterval(showBanner, 2000);
-        // fix cứng từ điển
-        let dictionary = [
-            { keyword: "下 (した)", mean: "phía dưới" },
-            { keyword: "上（うえ)", mean: "phía trên" },
-            { keyword: "右（みぎ)", mean: "bên phải" },
-            { keyword: "左（ひだり", mean: "phía trái" },
-            { keyword: "まっすぐ", mean: "đi thẳng" },
-            { keyword: "回り（まわり)", mean: "quay lại" },
-            { keyword: "下着（したぎ)", mean: "áo lót" },
+        // Tạo câu hỏi và câu trả lời
+        let arrQues = [
+            { ques: "あ", ans: ["a", "i", "u", "e"], click: false, id: "" },
+            { ques: "い", ans: ["i", "o", "e", "a"], click: false, id: "" },
+            { ques: "う", ans: ["e", "i", "u", "o"], click: false, id: "" },
+            { ques: "え", ans: ["u", "e", "a", "o"], click: false, id: "" },
+            { ques: "お", ans: ["i", "o", "u", "e"], click: false, id: "" },
         ];
-        localStorage.setItem("dictionary", JSON.stringify(dictionary));
-        // Fix cứng bài kiểm tra
-        
-        // check sự kiện handle click 
-        function hideTable() {
-            let getId = document.getElementById("menu");
-            console.log(getId.style.display);
-            if (getId.style.display == "block") {
-                document.addEventListener("click", handleClick);
-                function handleClick(event) {
-                    let check = event.target.classList.contains("menu");
-                    console.log(event.target.classList);
-                    console.log(check);
-                    if (check == false) {
-                        getId.setAttribute("style", "display:none");
-                        document.removeEventListener("click", handleClick);
+        let arrTest = [
+            { question: "あ", answer: "a" },
+            { question: "い", answer: "i" },
+            { question: "う", answer: "u" },
+            { question: "え", answer: "e" },
+            { question: "お", answer: "o" }
+        ]
+        localStorage.setItem("test", JSON.stringify(arrTest));
+        // // check sự kiện handle click 
+        // hideTable("menu");
+        // function hideTable(id) {
+        //     let getId = document.getElementById(id);
+        //     if (getId.style.display === "block") {
+        //         document.addEventListener("click", function handleClick(event) {
+        //             let check = event.target.classList.contains(id);
+        //             console.log(check);
+        //             if (check == false) {
+        //                 getId.setAttribute("style", "display:none");
+        //             }
+        //         });
+        //     }
+        // }
+        // Hàm kiểm tra đáp án
+        ktr = 0;
+        ktw = 0;
+        pt = 0;
+        function checkAnswer(idAns, idQuest) {
+            let getAnswer = document.getElementById(idAns).innerHTML;
+            let getQuest = document.getElementById(idQuest).innerHTML;
+            let rightAns = document.getElementById("right-ans");
+            let wrongAns = document.getElementById("wrong-ans");
+            let point = document.getElementById("point");
+            let test = JSON.parse(localStorage.getItem("test"));
+
+            for (let i in test) {
+                if (getQuest == test[i].question) {
+                    if (getAnswer == test[i].answer) {
+                        document.getElementById(idAns).setAttribute("style", "background-color: rgb(73, 237, 41);box-shadow: none");
+                        ktr++;
+                        rightAns.innerHTML = `${ktr}`;
+
+                    } else {
+                        document.getElementById(idAns).setAttribute("style", "background-color: red;box-shadow: none");
+                        ktw++;
+                        wrongAns.innerHTML = `${ktw}`;
+                    }
+                    break;
+                }
+            }
+            for (let i in arrQues) {
+                if (getQuest == arrQues[i].ques) {
+                    arrQues[i].click = "true";
+                    arrQues[i].id = idAns;
+                }
+            }
+            console.log(arrQues);
+            pt = 10 * (ktr / arrQues.length);
+            point.innerHTML = `${pt}`;
+            let answerModal = document.getElementById("answer-modal");
+            answerModal.setAttribute("style", "display:block");
+        }
+        // Hàm next câu hỏi
+        let ichi = 0;
+        function nextQues() {
+            ichi++;
+            document.getElementById("question").innerHTML = arrQues[ichi].ques;
+            let answerResult = document.getElementsByClassName("answer-result");
+            for (let i = 0; i < 4; i++) {
+                answerResult[i].innerHTML = arrQues[ichi].ans[i];
+            }
+
+            let btnNext = document.getElementById("btn-next-ques");
+            let btnComplete = document.getElementById("btn-complete");
+            let btnBack = document.getElementById("btn-back-ques");
+            let answerModal = document.getElementById("answer-modal");
+
+            let getQuest = document.getElementById("question").innerHTML;
+            for (let index in arrQues) {
+                if (getQuest == arrQues[index].ques) {
+                    if (arrQues[index].click == "true") {
+                        let getAnswer = document.getElementById(arrQues[index].id).innerHTML;
+                        let test = JSON.parse(localStorage.getItem("test"));
+                        for (let i = 0; i < 4; i++) {
+                            answerResult[i].setAttribute("style", "box-shadow:block;background-color:rgb(204, 144, 226)")
+                        }
+                        for (let j in test) {
+                            if (getQuest == test[j].question) {
+                                if (getAnswer == test[j].answer) {
+                                    document.getElementById(arrQues[index].id).setAttribute("style", "background-color: rgb(73, 237, 41);box-shadow: none");
+                                } else {
+                                    document.getElementById(arrQues[index].id).setAttribute("style", "background-color: red;box-shadow: none");
+                                }
+                                break;
+                            }
+                        }
+                        answerModal.setAttribute("style", "display:block");
+                        if (ichi != 0) {
+                            btnBack.setAttribute("style", "display:block");
+                        }
+                        if (ichi == arrQues.length - 1) {
+                            btnNext.setAttribute("style", "display:none");
+                            btnComplete.setAttribute("style", "display:block");
+                        }
+                    } else {
+                        if (answerModal.style.display == "block") {
+                            answerModal.setAttribute("style", "display:none");
+                        }
+                        for (let i = 0; i < 4; i++) {
+                            answerResult[i].setAttribute("style", "box-shadow:block;background-color:rgb(204, 144, 226)")
+                        }
+                        if (ichi != 0) {
+                            btnBack.setAttribute("style", "display:block");
+                        }
+                        if (ichi == arrQues.length - 1) {
+                            btnNext.setAttribute("style", "display:none");
+                            btnComplete.setAttribute("style", "display:block");
+                        }
+                    }
+                }
+            }
+
+        }
+        // hàm trở về câu hỏi trước
+        function backQues() {
+            --ichi;
+            document.getElementById("question").innerHTML = arrQues[ichi].ques;
+            let answerResult = document.getElementsByClassName("answer-result");
+            for (let i = 0; i < 4; i++) {
+                answerResult[i].innerHTML = arrQues[ichi].ans[i];
+            }
+
+            let btnNext = document.getElementById("btn-next-ques");
+            let btnComplete = document.getElementById("btn-complete");
+            let btnBack = document.getElementById("btn-back-ques");
+            let answerModal = document.getElementById("answer-modal");
+
+            let getQuest = document.getElementById("question").innerHTML;
+            for (let index in arrQues) {
+                if (getQuest == arrQues[index].ques) {
+                    if (arrQues[index].click == "true") {
+                        let getAnswer = document.getElementById(arrQues[index].id).innerHTML;
+                        let test = JSON.parse(localStorage.getItem("test"));
+                        for (let i = 0; i < 4; i++) {
+                            answerResult[i].setAttribute("style", "box-shadow:block;background-color:rgb(204, 144, 226)")
+                        }
+                        for (let j in test) {
+                            if (getQuest == test[j].question) {
+                                if (getAnswer == test[j].answer) {
+                                    document.getElementById(arrQues[index].id).setAttribute("style", "background-color: rgb(73, 237, 41);box-shadow: none");
+                                } else {
+                                    document.getElementById(arrQues[index].id).setAttribute("style", "background-color: red;box-shadow: none");
+                                }
+                                break;
+                            }
+                        }
+                        answerModal.setAttribute("style", "display:block");
+                        if (ichi != arrQues.length) {
+                            btnNext.setAttribute("style", "display:block;width:130px");
+                            btnComplete.setAttribute("style", "display:none");
+                        }
+                        if (ichi == 0) {
+                            btnBack.setAttribute("style", "display:none");
+                        }
+                    } else {
+                        if (answerModal.style.display == "block") {
+                            answerModal.setAttribute("style", "display:none");
+                        }
+                        if (ichi != arrQues.length) {
+                            btnNext.setAttribute("style", "display:block;width:130px");
+                            btnComplete.setAttribute("style", "display:none");
+                        }
+                        for (let i = 0; i < 4; i++) {
+                            answerResult[i].setAttribute("style", "box-shadow:block;background-color:rgb(204, 144, 226)")
+                        }
+                        document.getElementById("question").innerHTML = arrQues[ichi].ques;
+                        for (let i = 0; i < 4; i++) {
+                            answerResult[i].innerHTML = arrQues[ichi].ans[i];
+                        }
+                        if (ichi == 0) {
+                            btnBack.setAttribute("style", "display:none");
+                        }
                     }
                 }
             }
         }
 
+        // Hàm hoàn thành bài thi
+        function complete() {
+            let getQues = document.getElementById("question");
+            let getAns = document.getElementById("answer");
+            let btnNext = document.getElementById("btn-next-ques");
+            let btnComplete = document.getElementById("btn-complete");
+            let btnBack = document.getElementById("btn-back-ques");
+            let answerModal = document.getElementById("answer-modal");
+            let resultProperty = document.getElementsByClassName("result-property");
+            let testMenu = document.getElementById("test-menu");
+            testMenu.setAttribute("style", "display:block");
+            getAns.setAttribute("style", "display:none");
+            getQues.setAttribute("style", "display:none");
+            btnComplete.setAttribute("style", "display:none");
+            btnBack.setAttribute("style", "display:none");
+            btnNext.setAttribute("style", "display:none");
+            answerModal.setAttribute("style", "display:none");
+            for (i in resultProperty) {
+                resultProperty[i].innerHTML = 0;
+            }
+            ktr = 0;
+            ktw = 0;
+            pt = 0;
+            ichi = 0;
+        }
+
+        function beginnerTestShow() {
+            let testMenu = document.getElementById("test-menu");
+            let btnNext = document.getElementById("btn-next-ques");
+            let getQues = document.getElementById("question");
+            let getAns = document.getElementById("answer");
+            testMenu.setAttribute("style", "display:none");
+            getAns.setAttribute("style", "display:block");
+            getQues.setAttribute("style", "display:block");
+            btnNext.setAttribute("style", "display:block");
+
+        }
+        // Show các thẻ học
+        function showCart() {
+            let mainText = document.getElementById("main-text");
+            let mainContent = document.getElementById("main-content");
+            let mainBtn = document.getElementById("main-btn");
+            mainText.setAttribute("style", "display:none");
+            mainBtn.setAttribute("style", "display:none");
+            mainContent.setAttribute("style", "display:block");
+        }
+        function hideCart() {
+            let mainText = document.getElementById("main-text");
+            let mainContent = document.getElementById("main-content");
+            let mainBtn = document.getElementById("main-btn");
+            mainText.setAttribute("style", "display:block");
+            mainBtn.setAttribute("style", "display:block");
+            mainContent.setAttribute("style", "display:none");
+        }
+        // Show Hiragana
+        function show(id) {
+            let getID = document.getElementById(id);
+            let backIcon = document.getElementById("back-icon");
+            getID.setAttribute("style", "display:block");
+            backIcon.setAttribute("style", "display:block");
+        }
+        function hide() {
+            let hiraHide = document.getElementById("hiragana");
+            let kataHide = document.getElementById("katakana");
+            let backIcon = document.getElementById("back-icon");
+            let amGhep = document.getElementById("am-ghep")
+            hiraHide.setAttribute("style", "display:none");
+            kataHide.setAttribute("style", "display:none");
+            amGhep.setAttribute("style", "display:none");
+            backIcon.setAttribute("style", "display:none");
+        }
         // Hàm gán xuất giá trị tên đăng nhập và email
         function updateInfor(id, value) {
             let getId = document.getElementById(id);
@@ -877,9 +1187,6 @@ Job:            <span id="jobwork"></span>
             } else {
                 menu.setAttribute("style", "display:none");
             }
-            document.addEventListener("click", hideTable);
-            document.removeEventListener("click", hideTable);
-
         }
         // Hàm kiểm tra xem người dùng đang đăng nhập hay đăng xuất rồi
         function check() {

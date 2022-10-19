@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en ja-JP zh-HK">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Homepage</title>
+    <title>Dictionary</title>
 </head>
 <style>
     * {
@@ -101,8 +101,9 @@
     }
 
     .menu-list-number {
-        background-color: rgb(38, 238, 28);
         display: flex;
+        background-color: rgb(38, 238, 28);
+
         /* border: 2px solid yellow; */
         width: calc(100% / 6);
         box-sizing: border-box;
@@ -139,6 +140,7 @@
         font-family: Arial, Helvetica, sans-serif;
         box-shadow: 5px 5px 3px yellow,
             inset -5px 5px 5px rgb(143, 242, 5);
+
     }
 
     #menu {
@@ -353,7 +355,7 @@
         box-shadow: 2px 3px 5px 0 red;
     }
 
-    .search {
+    .del {
         /* border: 2px solid blue; */
         width: 100%;
         height: 30px;
@@ -362,18 +364,6 @@
         text-align: right;
     }
 
-    input[type="search"] {
-        outline: none;
-        box-shadow: inset 2px 3px rgb(171, 168, 168);
-        border-radius: 5px;
-        width: 100px;
-        height: 100%;
-        transition: 0.4s all ease-in-out;
-    }
-
-    input[type="search"]:focus {
-        width: 300px;
-    }
 
     .body-page {
         /* border: 2px solid red; */
@@ -427,6 +417,7 @@
         font-size: larger;
         cursor: pointer;
         background-color: rgb(74, 228, 35);
+
     }
 
     .contact {
@@ -459,6 +450,7 @@
     }
 
     .body-page .body-content {
+        position: relative;
         /* border: 2px solid yellow; */
         width: 84%;
         height: calc(100% - 1vh);
@@ -466,6 +458,16 @@
         background-color: white;
         box-shadow: inset 5px 10px rgb(177, 171, 171);
         padding: 10px 0 0 5px;
+    }
+
+    .body-content .main-text {
+        /* border: 2px solid yellow; */
+        position: absolute;
+        width: 85%;
+        top: 0px;
+        height: 90%;
+        margin: 30px 80px 0 80px;
+        /* text-align: justify; */
     }
 
     .main-content-modal {
@@ -478,48 +480,47 @@
         opacity: 50%;
     }
 
-    .main-content {
-        position: relative;
-        top: -100%;
-        /* border: 2px solid red; */
-        height: 100%;
-        padding: 50px;
-        box-sizing: border-box;
-    }
-
-    .main-content .main-content-header {
+    .search {
         /* border: 2px solid blue; */
-        height: 30%;
-    }
-
-    .main-content .main-content-footer {
-        height: 10%;
-    }
-
-    .main-content .main-content-header p {
-        font-size: larger;
-    }
-
-    .main-content .main-content-body {
-        height: 60%;
-        /* border: 5px double blue; */
-        margin: 0 200px 0 200px;
-        display: flex;
-        padding: 0 100px 0 100px;
-    }
-
-    .mcbody-panner {
-        border: 2px solid red;
         width: 100%;
-        border-radius: 10px;
+        height: 50px;
+        font-size: 20px;
     }
 
-    #banner {
-        border-radius: 10px;
+    input[type="search"] {
+        outline: none;
+        box-shadow: inset 2px 3px rgb(171, 168, 168);
+        border-radius: 5px;
+        width: 200px;
+        height: 100%;
+        border-radius: 20px;
+        transition: 0.4s all ease-in-out;
+        font-size: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+    }
+
+    input[type="search"]:focus {
+        width: 600px;
+        background-color: pink;
+    }
+
+    .result {
+        border: 4px double red;
+        width: 100%;
+        margin-top: 30px;
+        height: 80%;
+        box-sizing: border-box;
+        padding: 50px;
+        font-size: 25px;
+        font-weight: 500;
+        border-radius: 20px;
     }
 </style>
 
 <body onload="check()">
+
 
     <div class="container">
         <div class="header">
@@ -527,7 +528,7 @@
                 <div id="logo" onclick="window.location.href = '/Content/index.html'"></div>
                 <div id="menuList">
                     <div class="menu-list-number">
-                        <span class="listItems"><a href="/Content/begin.html" target="_blank">Beginner</a></span>
+                        <span class="listItems"><a href="/Content/begin.html" target="_self">Beginner</a></span>
                     </div>
                     <div class="menu-list-number">
                         <span class="listItems"><a href="" target="#">Elementary</a></span>
@@ -550,9 +551,7 @@
             <i onclick="showList()" class="fa-solid fa-user fa-2x"></i>
 
         </div>
-        <div class="search">
-            <label for="search-input">Search</label>
-            <input id="search-input" type="search" placeholder="Enter keywords">
+        <div class="del">
         </div>
         <div class="body-page">
             <div class="body-list">
@@ -573,31 +572,20 @@
             </div>
             <div class="body-content">
                 <div class="main-content-modal"></div>
-                <div class="main-content">
-                    <div class="main-content-header">
-                        <p>
-                            Chào mừng bạn quay trở lại với Tiếng Nhật AXJapan. <br>
-                            Hôm nay chúng ta hãy tiếp tục bài học hôm qua nhé. <br>
-                            Chúc bạn một ngày học vui vẻ và hiệu quả. <br> <br>
-
-                            Trong thời gian học hành vất vả quá hãy xem qua các bức ảnh về đất nước Nhật Bản xinh đẹp để
-                            lấy thêm động lực nhé
-                        </p>
+                <div class="main-text">
+                    <div class="search">
+                        <label for="search-input">Nhập từ muốn tra</label>
+                        <input id="search-input" oninput="action()" type="search" placeholder="Enter keywords">
                     </div>
-                    <div class="main-content-body">
-                        <div class="mcbody-panner">
-                            <img id="banner" src="/Lybrary/banner1.jfif" width="100%" height="100%" alt="error">
-                        </div>
-                    </div>
-                    <div class="main main-content-footer"></div>
+                    <div class="result" id="result"></div>
                 </div>
             </div>
         </div>
         <!-- Bảng thông tin acount -->
-        <div id="menu" class="menu" onclick="hideTable()">
+        <div id="menu">
             <div id="infor" onclick="infor()">Account information</div>
             <div id="change-pass" onclick="showChangeBox()">Change Password</div>
-            <div class="menu">My study schedule</div>
+            <div>My study schedule</div>
             <div id="logout" onclick="logOut()">Log out</div>
         </div>
 
@@ -716,48 +704,82 @@ Job:            <span id="jobwork"></span>
             user.innerHTML = Name;
         }
 
-        let image = ["/Lybrary/banner1.jfif", "/Lybrary/banner2.jfif", "/Lybrary/banner3.jfif", "/Lybrary/banner4.jfif", "/Lybrary/banner5.jpg", "/Lybrary/banner6.jpg", "/Lybrary/banner7.webp"];
-        let banner = document.getElementById("banner");
-        let count = 0;
-        let showBanner = () => {
-            banner.src = image[count];
-            count++;
-            if (count == image.length) {
-                count = 0;
+
+
+        // // check sự kiện handle click 
+        // hideTable("menu");
+        // function hideTable(id) {
+        //     let getId = document.getElementById(id);
+        //     if (getId.style.display === "block") {
+        //         document.addEventListener("click", function handleClick(event) {
+        //             let check = event.target.classList.contains(id);
+        //             console.log(check);
+        //             if (check == false) {
+        //                 getId.setAttribute("style", "display:none");
+        //             }
+        //         });
+        //     }
+        // }
+        // Hàm tìm kiếm 
+        function search() {
+            if (event.key == "Enter") {
+                action();
             }
         }
-        setInterval(showBanner, 2000);
-        // fix cứng từ điển
-        let dictionary = [
-            { keyword: "下 (した)", mean: "phía dưới" },
-            { keyword: "上（うえ)", mean: "phía trên" },
-            { keyword: "右（みぎ)", mean: "bên phải" },
-            { keyword: "左（ひだり", mean: "phía trái" },
-            { keyword: "まっすぐ", mean: "đi thẳng" },
-            { keyword: "回り（まわり)", mean: "quay lại" },
-            { keyword: "下着（したぎ)", mean: "áo lót" },
-        ];
-        localStorage.setItem("dictionary", JSON.stringify(dictionary));
-        // Fix cứng bài kiểm tra
-        
-        // check sự kiện handle click 
-        function hideTable() {
-            let getId = document.getElementById("menu");
-            console.log(getId.style.display);
-            if (getId.style.display == "block") {
-                document.addEventListener("click", handleClick);
-                function handleClick(event) {
-                    let check = event.target.classList.contains("menu");
-                    console.log(event.target.classList);
-                    console.log(check);
-                    if (check == false) {
-                        getId.setAttribute("style", "display:none");
-                        document.removeEventListener("click", handleClick);
+        function action() {
+            let searchInput = document.getElementById("search-input").value;
+            let result = document.getElementById("result");
+            let getWord = JSON.parse(localStorage.getItem("dictionary"));
+            result.innerHTML = ``;
+            if (searchInput == "") {
+                result.innerHTML = ``;
+            } else {
+                arrResult = [];
+                for (let i in getWord) {
+                    if (getWord[i].keyword.includes(searchInput.trim())) {
+                        arrResult.push(getWord[i]);
                     }
+                }
+                for (let i in arrResult) {
+                    result.innerHTML += `${arrResult[i].keyword} : ${arrResult[i].mean} ${"<br>"}`;
                 }
             }
         }
 
+        // Show các thẻ học
+        function showCart() {
+            let mainText = document.getElementById("main-text");
+            let mainContent = document.getElementById("main-content");
+            let mainBtn = document.getElementById("main-btn");
+            mainText.setAttribute("style", "display:none");
+            mainBtn.setAttribute("style", "display:none");
+            mainContent.setAttribute("style", "display:block");
+        }
+        function hideCart() {
+            let mainText = document.getElementById("main-text");
+            let mainContent = document.getElementById("main-content");
+            let mainBtn = document.getElementById("main-btn");
+            mainText.setAttribute("style", "display:block");
+            mainBtn.setAttribute("style", "display:block");
+            mainContent.setAttribute("style", "display:none");
+        }
+        // Show Hiragana
+        function show(id) {
+            let getID = document.getElementById(id);
+            let backIcon = document.getElementById("back-icon");
+            getID.setAttribute("style", "display:block");
+            backIcon.setAttribute("style", "display:block");
+        }
+        function hide() {
+            let hiraHide = document.getElementById("hiragana");
+            let kataHide = document.getElementById("katakana");
+            let backIcon = document.getElementById("back-icon");
+            let amGhep = document.getElementById("am-ghep")
+            hiraHide.setAttribute("style", "display:none");
+            kataHide.setAttribute("style", "display:none");
+            amGhep.setAttribute("style", "display:none");
+            backIcon.setAttribute("style", "display:none");
+        }
         // Hàm gán xuất giá trị tên đăng nhập và email
         function updateInfor(id, value) {
             let getId = document.getElementById(id);
@@ -877,9 +899,6 @@ Job:            <span id="jobwork"></span>
             } else {
                 menu.setAttribute("style", "display:none");
             }
-            document.addEventListener("click", hideTable);
-            document.removeEventListener("click", hideTable);
-
         }
         // Hàm kiểm tra xem người dùng đang đăng nhập hay đăng xuất rồi
         function check() {
