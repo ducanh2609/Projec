@@ -531,9 +531,9 @@
     }
 
     .answer-result:hover {
-        background-color: rgb(233, 233, 48);
         box-shadow: inset -15px 15px 5px rgb(223, 234, 140),
             10px 15px 10px;
+        cursor: pointer;
     }
 
     .answer-modal {
@@ -591,6 +591,7 @@
         box-sizing: border-box;
         padding: 20px;
         font-size: 30px;
+        overflow: auto;
     }
 
     .test-menu p:hover {
@@ -659,14 +660,14 @@
                 <div class="main-text">
                     <div class="test-menu" id="test-menu">
                         <p id="beginner-test" onclick="beginnerTestShow()">1. Bài thi cho người mới bắt đầu</p>
-                        <p id="elementary-test">2. Bài thì trình độ sơ cấp</p>
+                        <p id="elementary-test">2. Bài thi trình độ sơ cấp</p>
                     </div>
-                    <div id="question" class="question" style="display: none;">あ</div>
+                    <div id="question" class="question" style="display: none;"></div>
                     <div class="answer" id="answer" style="display: none;">
-                        <div id="answer-1" class="answer-result" onclick="checkAnswer('answer-1','question')">a</div>
-                        <div id="answer-2" class="answer-result" onclick="checkAnswer('answer-2','question')">i</div>
-                        <div id="answer-3" class="answer-result" onclick="checkAnswer('answer-3','question')">u</div>
-                        <div id="answer-4" class="answer-result" onclick="checkAnswer('answer-4','question')">e</div>
+                        <div id="answer-1" class="answer-result" onclick="checkAnswer('answer-1','question')"></div>
+                        <div id="answer-2" class="answer-result" onclick="checkAnswer('answer-2','question')"></div>
+                        <div id="answer-3" class="answer-result" onclick="checkAnswer('answer-3','question')"></div>
+                        <div id="answer-4" class="answer-result" onclick="checkAnswer('answer-4','question')"></div>
                     </div>
                     <div class="answer-modal" id="answer-modal"></div>
                 </div>
@@ -838,12 +839,15 @@ Job:            <span id="jobwork"></span>
         ktw = 0;
         pt = 0;
         function checkAnswer(idAns, idQuest) {
+            console.log(this);
+
             let getAnswer = document.getElementById(idAns).innerHTML;
             let getQuest = document.getElementById(idQuest).innerHTML;
             let rightAns = document.getElementById("right-ans");
             let wrongAns = document.getElementById("wrong-ans");
             let point = document.getElementById("point");
             let test = JSON.parse(localStorage.getItem("test"));
+            let answerResult = document.getElementsByClassName("answer-result");
 
             for (let i in test) {
                 if (getQuest == test[i].question) {
@@ -851,7 +855,6 @@ Job:            <span id="jobwork"></span>
                         document.getElementById(idAns).setAttribute("style", "background-color: rgb(73, 237, 41);box-shadow: none");
                         ktr++;
                         rightAns.innerHTML = `${ktr}`;
-
                     } else {
                         document.getElementById(idAns).setAttribute("style", "background-color: red;box-shadow: none");
                         ktw++;
@@ -866,7 +869,6 @@ Job:            <span id="jobwork"></span>
                     arrQues[i].id = idAns;
                 }
             }
-            console.log(arrQues);
             pt = 10 * (ktr / arrQues.length);
             point.innerHTML = `${pt}`;
             let answerModal = document.getElementById("answer-modal");
@@ -915,12 +917,20 @@ Job:            <span id="jobwork"></span>
                             btnComplete.setAttribute("style", "display:block");
                         }
                     } else {
+
                         if (answerModal.style.display == "block") {
                             answerModal.setAttribute("style", "display:none");
                         }
                         for (let i = 0; i < 4; i++) {
-                            answerResult[i].setAttribute("style", "box-shadow:block;background-color:rgb(204, 144, 226)")
+                            answerResult[i].setAttribute("style", "box-shadow:block;background-color:rgb(204, 144, 226)");
+                            // answerResult[i].addEventListener('mouseover', function () {
+                            //     answerResult[i].setAttribute("style", "background-color:rgb(233, 233, 48)");
+                            // });
+                            // answerResult[i].addEventListener('mouseout', function () {
+                            //     answerResult[i].setAttribute("style", "background-color:rgb(204, 144, 226)");
+                            // });
                         }
+                        console.log(this);
                         if (ichi != 0) {
                             btnBack.setAttribute("style", "display:block");
                         }
@@ -984,6 +994,13 @@ Job:            <span id="jobwork"></span>
                         }
                         for (let i = 0; i < 4; i++) {
                             answerResult[i].setAttribute("style", "box-shadow:block;background-color:rgb(204, 144, 226)")
+                            // answerResult[i].addEventListener('mouseover', function () {
+                            //     answerResult[i].setAttribute("style", "background-color:rgb(233, 233, 48)");
+
+                            // });
+                            // answerResult[i].addEventListener('mouseout', function () {
+                            //     answerResult[i].setAttribute("style", "background-color:rgb(204, 144, 226)");
+                            // });
                         }
                         document.getElementById("question").innerHTML = arrQues[ichi].ques;
                         for (let i = 0; i < 4; i++) {
@@ -1021,9 +1038,24 @@ Job:            <span id="jobwork"></span>
             ktw = 0;
             pt = 0;
             ichi = 0;
+            document.getElementById("question").innerHTML = arrQues[ichi].ques;
+            let answerResult = document.getElementsByClassName("answer-result");
+            for (let i = 0; i < 4; i++) {
+                answerResult[i].innerHTML = arrQues[ichi].ans[i];
+            }
+            for (let i in arrQues) {
+                arrQues[i].click = "false";
+                arrQues[i].id = "";
+            }
         }
-
+        // Mở thẻ kiểm tra
         function beginnerTestShow() {
+            document.getElementById("question").innerHTML = arrQues[ichi].ques;
+            let answerResult = document.getElementsByClassName("answer-result");
+            for (let i = 0; i < 4; i++) {
+                answerResult[i].innerHTML = arrQues[ichi].ans[i];
+                document.getElementById(answerResult[i].id).setAttribute("style", "box-shadow:block;background-color:rgb(204, 144, 226)")
+            }
             let testMenu = document.getElementById("test-menu");
             let btnNext = document.getElementById("btn-next-ques");
             let getQues = document.getElementById("question");
@@ -1031,7 +1063,7 @@ Job:            <span id="jobwork"></span>
             testMenu.setAttribute("style", "display:none");
             getAns.setAttribute("style", "display:block");
             getQues.setAttribute("style", "display:block");
-            btnNext.setAttribute("style", "display:block");
+            btnNext.setAttribute("style", "display:block;width:130px");
 
         }
         // Show các thẻ học
