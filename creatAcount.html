@@ -139,7 +139,7 @@
 
             <!-- Thông báo chỉ dẫn -->
             <div class="okAcount">
-                You already have an account. <br> <a href="/Content/login.html">Login</a>
+                You already have an account. <br> <a href="/login.html">Login</a>
             </div>
         </div>
     </div>
@@ -231,7 +231,7 @@
                         getInformation.push(obj);
                         // Đẩy thông tin lên bộ nhớ và chuyển trang
                         localStorage.setItem("information", JSON.stringify(getInformation));
-                        window.location.href = "/Content/login.html";
+                        window.location.href = "/login.html";
                         document.getElementById("username").value = "";
                         document.getElementById("email").value = "";
                         document.getElementById("confirmPassword").value = "";
@@ -281,7 +281,7 @@
                             okRules.setAttribute("style", "display:none");
                             getInformation.push(obj);
                             localStorage.setItem("information", JSON.stringify(getInformation));
-                            window.location.href = "/Content/login.html";
+                            window.location.href = "/login.html";
                             document.getElementById("username").value = "";
                             document.getElementById("email").value = "";
                             document.getElementById("confirmPassword").value = "";
@@ -321,7 +321,7 @@
         }
 
         function cancel() {
-            window.location.href = "/Content/MainBackground.html"
+            window.location.href = "/index.html"
         }
 
         function entry(event) {
