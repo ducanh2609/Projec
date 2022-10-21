@@ -546,7 +546,7 @@
                     </div>
                 </div>
             </div>
-            <h3 class="user" id="user"></h3>
+            <h3 class="user" id="user">ádads</h3>
             <i onclick="showList()" class="fa-solid fa-user fa-2x"></i>
 
         </div>
@@ -690,7 +690,7 @@ Job:            <span id="jobwork"></span>
                     break;
                 } else {
                     flag = false;
-                    indexUs1 = Number(i) + 1;
+                    indexUs1 = Number(i);
                 }
             }
         }
@@ -709,12 +709,12 @@ Job:            <span id="jobwork"></span>
                 getIdJobwork.innerHTML = inforUs[indexUs1].Jobwork;
             }
         }
+
         let user = document.getElementById("user");
-        if (inforUs == null ||  inforUs[indexUs] == undefined ) {
-            let getIdUserName = document.getElementById("user-name");
-            user.innerHTML = getIdUserName.innerHTML;
+        if (inforUs[indexUs1] == null || inforUs[indexUs1].Name == "") {
+            user.innerHTML = inforUserName.innerHTML ;
         } else {
-            let Name = JSON.parse(localStorage.getItem("userInfor"))[indexUs].Name;
+            let Name = JSON.parse(localStorage.getItem("userInfor"))[indexUs1].Name;
             user.innerHTML = Name;
         }
 
@@ -745,7 +745,6 @@ Job:            <span id="jobwork"></span>
         // check sự kiện handle click 
         function hideTable() {
             let getId = document.getElementById("menu");
-            console.log(getId.style.display);
             if (getId.style.display == "block") {
                 document.addEventListener("click", handleClick);
                 function handleClick(event) {
@@ -782,11 +781,10 @@ Job:            <span id="jobwork"></span>
                 Address: usAddess,
                 Jobwork: usJobwork
             }
-            let getUserInfor = localStorage.getItem("userInfor");
-            if (getUserInfor == null) {
-                getUserInfor = [];
-                getUserInfor.push(obj);
-                localStorage.setItem("userInfor", JSON.stringify(getUserInfor));
+            if (inforUs == null) {
+                inforUs = [];
+                inforUs.push(obj);
+                localStorage.setItem("userInfor", JSON.stringify(inforUs));
                 updateInfor("name", "Name");
                 updateInfor("age", "Age");
                 updateInfor("mobile", "Mobile");

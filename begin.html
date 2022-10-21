@@ -903,11 +903,10 @@ Job:            <span id="jobwork"></span>
             }
         }
         let user = document.getElementById("user");
-        if (inforUs == null || inforUs[indexUs] == undefined) {
-            let getIdUserName = document.getElementById("user-name");
-            user.innerHTML = getIdUserName.innerHTML;
+        if (inforUs[indexUs1] == null || inforUs[indexUs1].Name == "") {
+            user.innerHTML = inforUserName.innerHTML ;
         } else {
-            let Name = JSON.parse(localStorage.getItem("userInfor"))[indexUs].Name;
+            let Name = JSON.parse(localStorage.getItem("userInfor"))[indexUs1].Name;
             user.innerHTML = Name;
         }
 
@@ -983,11 +982,10 @@ Job:            <span id="jobwork"></span>
                 Address: usAddess,
                 Jobwork: usJobwork
             }
-            let getUserInfor = localStorage.getItem("userInfor");
-            if (getUserInfor == null) {
-                getUserInfor = [];
-                getUserInfor.push(obj);
-                localStorage.setItem("userInfor", JSON.stringify(getUserInfor));
+            if (inforUs == null) {
+                inforUs = [];
+                inforUs.push(obj);
+                localStorage.setItem("userInfor", JSON.stringify(inforUs));
                 updateInfor("name", "Name");
                 updateInfor("age", "Age");
                 updateInfor("mobile", "Mobile");
