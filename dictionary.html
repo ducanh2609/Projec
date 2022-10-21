@@ -668,6 +668,7 @@ Job:            <span id="jobwork"></span>
         let flag = true;
         if (inforUs == null) {
             inforUs = [];
+            flag = false;
             indexUs1 = 0;
         } else {
             for (let i = 0; i < inforUs.length; i++) {
@@ -696,7 +697,7 @@ Job:            <span id="jobwork"></span>
             }
         }
         let user = document.getElementById("user");
-        if (inforUs == null || inforUs[indexUs].Name == "") {
+        if (inforUs == null ||  inforUs[indexUs] == undefined) {
             let getIdUserName = document.getElementById("user-name");
             user.innerHTML = getIdUserName.innerHTML;
         } else {

@@ -766,8 +766,10 @@ Job:            <span id="jobwork"></span>
         inforEml.innerHTML = eml;
         let indexUs1;
         let flag = true;
+        console.log(inforUs);
         if (inforUs == null) {
             inforUs = [];
+            flag = false;
             indexUs1 = 0;
         } else {
             for (let i = 0; i < inforUs.length; i++) {
@@ -788,6 +790,8 @@ Job:            <span id="jobwork"></span>
                 let getIdMobile = document.getElementById("mobile");
                 let getIdAddress = document.getElementById("address");
                 let getIdJobwork = document.getElementById("jobwork");
+                console.log(inforUs[indexUs1]);
+                console.log(getIdName);
                 getIdName.innerHTML = inforUs[indexUs1].Name;
                 getIdAge.innerHTML = inforUs[indexUs1].Age;
                 getIdMobile.innerHTML = inforUs[indexUs1].Mobile;
@@ -797,7 +801,7 @@ Job:            <span id="jobwork"></span>
         }
         // Hiện tên người dùng trong trang web
         let user = document.getElementById("user");
-        if (inforUs == null || inforUs[indexUs].Name == "") {
+        if (inforUs == null || inforUs[indexUs] == undefined) {
             let getIdUserName = document.getElementById("user-name");
             user.innerHTML = getIdUserName.innerHTML;
         } else {
@@ -1050,6 +1054,7 @@ Job:            <span id="jobwork"></span>
         }
         // Mở thẻ kiểm tra
         function beginnerTestShow() {
+            console.log(ichi);
             document.getElementById("question").innerHTML = arrQues[ichi].ques;
             let answerResult = document.getElementsByClassName("answer-result");
             for (let i = 0; i < 4; i++) {

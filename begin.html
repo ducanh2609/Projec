@@ -464,7 +464,7 @@
     .body-page .body-content {
         /* border: 2px solid yellow; */
         width: 84%;
-        height:calc(100% - 1vh);
+        height: calc(100% - 1vh);
         box-sizing: border-box;
         background-color: white;
         box-shadow: inset 5px 10px rgb(177, 171, 171);
@@ -874,6 +874,7 @@ Job:            <span id="jobwork"></span>
         let flag = true;
         if (inforUs == null) {
             inforUs = [];
+            flag = false;
             indexUs1 = 0;
         } else {
             for (let i = 0; i < inforUs.length; i++) {
@@ -902,7 +903,7 @@ Job:            <span id="jobwork"></span>
             }
         }
         let user = document.getElementById("user");
-        if (inforUs == null || inforUs[indexUs].Name == "") {
+        if (inforUs == null || inforUs[indexUs] == undefined) {
             let getIdUserName = document.getElementById("user-name");
             user.innerHTML = getIdUserName.innerHTML;
         } else {

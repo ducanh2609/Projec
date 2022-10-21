@@ -542,7 +542,7 @@
                         <span class="listItems"><a href="" target="#">Kanji</a></span>
                     </div>
                     <div class="menu-list-number">
-                        <span class="listItems"><a href="/test.html" target="#">Test</a></span>
+                        <span class="listItems"><a href="/test.html" target="_blank">Test</a></span>
                     </div>
                 </div>
             </div>
@@ -680,6 +680,7 @@ Job:            <span id="jobwork"></span>
         let flag = true;
         if (inforUs == null) {
             inforUs = [];
+            flag = false;
             indexUs1 = 0;
         } else {
             for (let i = 0; i < inforUs.length; i++) {
@@ -693,6 +694,7 @@ Job:            <span id="jobwork"></span>
                 }
             }
         }
+
         if (inforUs != null) {
             if (flag == true) {
                 let getIdName = document.getElementById("name");
@@ -708,7 +710,7 @@ Job:            <span id="jobwork"></span>
             }
         }
         let user = document.getElementById("user");
-        if (inforUs == null || inforUs[indexUs].Name == "") {
+        if (inforUs == null ||  inforUs[indexUs] == undefined ) {
             let getIdUserName = document.getElementById("user-name");
             user.innerHTML = getIdUserName.innerHTML;
         } else {
@@ -739,7 +741,7 @@ Job:            <span id="jobwork"></span>
         ];
         localStorage.setItem("dictionary", JSON.stringify(dictionary));
         // Fix cứng bài kiểm tra
-        
+
         // check sự kiện handle click 
         function hideTable() {
             let getId = document.getElementById("menu");
