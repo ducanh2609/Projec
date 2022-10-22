@@ -31,11 +31,16 @@
         display: flex;
         position: absolute;
         /* border: 2px solid red; */
+        width: 100%;
         height: 100px;
+        justify-content: space-between;
     }
-
+    .homepage {
+        /* border: 1px solid; */
+        width: 40%;
+        display: flex;
+    }
     .menu-modal {
-        position: absolute;
         /* border: 2px solid red; */
         width: 100%;
         height: 100px;
@@ -48,7 +53,7 @@
         border-radius: 10px;
     }
 
-    .Homepage,
+    .logo,
     .studyTry {
         width: 300px;
         line-height: 100px;
@@ -62,21 +67,29 @@
         line-height: 100px;
         margin-left: 10px;
     }
-    .Homepage {
+
+    .logo {
         background-image: url(/Lybrary/AX.png);
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        opacity:80%;
+        opacity: 80%;
     }
-    .Homepage:hover,
+
+    .logo:hover,
     .studyTry:hover {
         box-shadow: 3px 10px 15px 0px rgb(228, 239, 64);
         border-radius: 10px;
     }
-
+    .tool {
+        /* border: 1px solid; */
+        width: 30%;
+        display: flex;
+        box-sizing: border-box;
+        justify-content: space-between;
+        padding: 20px 70px;
+    }
     #signin,
     #login {
-        position: absolute;
         top: 30px;
         width: 100px;
         height: 50px;
@@ -89,11 +102,9 @@
     }
 
     #signin {
-        left: 1200px;
     }
 
     #login {
-        left: 1350px;
     }
 
     #login:hover,
@@ -139,10 +150,13 @@
     #text:hover {
         cursor: pointer;
     }
-#text1 {
-    display: none;
-}
-    .text1, .text2 {
+
+    #text1 {
+        display: none;
+    }
+
+    .text1,
+    .text2 {
         border-bottom: 2px solid red;
         height: 50px;
         width: 200px;
@@ -163,22 +177,27 @@
     <div class="container">
         <div class="menu-modal"></div>
         <div class="menu">
-            <div class="Homepage">
-                <span></span>
+            <div class="homepage">
+                <div class="logo"></div>
+                <div class="studyTry">
+                    <span>Trial learning</span>
+                    <i onclick="showList()" class="fa fa-chevron-down"></i>
+                </div>
             </div>
-            <div class="studyTry">
-                <span>Trial learning</span>
-                <i onclick="showList()" class="fa fa-chevron-down"></i>
+            <div class="tool">
+                <button id="signin" onclick="Signin()">Register</button>
+                <button id="login" onclick="Login()">Login</button>
             </div>
-            <button id="signin" onclick="Signin()">Register</button>
-            <button id="login" onclick="Login()">Login</button>
+
         </div>
         <div id="tryList">
             <ol>
                 <li id="text" onclick="showText()" style="color:blue">Japanese alphabet
                     <div id="text1">
-                        <div class="text1"><a href="" style="color:blue; text-decoration: none ;">Hiragana</a></div> <br>
-                        <div class="text1 text2"><a href="" style="color:blue; text-decoration: none ;">Katakana</a></div>
+                        <div class="text1"><a href="" style="color:blue; text-decoration: none ;">Hiragana</a></div>
+                        <br>
+                        <div class="text1 text2"><a href="" style="color:blue; text-decoration: none ;">Katakana</a>
+                        </div>
                     </div>
                 </li>
                 <li><a style="color:blue; text-decoration: none ;" href="#">Mina 1</a></li>
@@ -196,7 +215,7 @@
     <script>
         function showList() {
             let tryList = document.getElementById("tryList");
-            if (tryList.style.display == ""||tryList.style.display == "none") {
+            if (tryList.style.display == "" || tryList.style.display == "none") {
                 tryList.setAttribute("style", "display:block");
             } else {
                 tryList.setAttribute("style", "display:none");
@@ -204,7 +223,7 @@
         }
         function showText() {
             let text = document.getElementById("text1");
-            if (text.style.display == ""||text.style.display == "none") {
+            if (text.style.display == "" || text.style.display == "none") {
                 text.setAttribute("style", "display:block");
             } else {
                 text.setAttribute("style", "display:none");
