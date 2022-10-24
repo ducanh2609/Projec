@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="/Background/smtp.js"></script>
+    <button type="submit" id="submit" onclick="sendEmail()"> Send Email </button>
+    <script>
+        function sendEmail() {
+            let email = prompt("Mời bạn nhập email:");
+            console.log(email);
+            Email.send({
+                SecureToken: "291d1da5-2cd1-4c50-9d6e-939255ebb239",
+                To: `${email}`,
+                From: "ducanh.nl2@gmail.com",
+                Subject: "Xác nhận mật khẩu",
+                Body: `111`
+            }).then(
+                message => alert(`Một tin nhắn đã được gửi đến email của bạn.\nVui lòng xác nhận!`)
+            );
+        }
+    </script>
+
+</body>
+
+</html>

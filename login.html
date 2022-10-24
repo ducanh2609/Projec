@@ -101,6 +101,10 @@
     .okAcount a {
         text-decoration: none;
     }
+    .okAcount div:hover{
+        color: red;
+        cursor: pointer;
+    }
 </style>
 
 <body onload="checkCheckbox()">
@@ -112,8 +116,9 @@
         <div class="login">
             <!-- Username -->
             <label for="username">Username</label> <br>
-            <input id="username" class="fixed" type="text" onkeypress="entry1(event,'email')" placeholder="Username"><br>
-            <span class="errorUserName" id="errorUserName" style="display: none">Username does not exist</span> 
+            <input id="username" class="fixed" type="text" onkeypress="entry1(event,'email')"
+                placeholder="Username"><br>
+            <span class="errorUserName" id="errorUserName" style="display: none">Username does not exist</span>
             <!-- Email -->
             <label for="email"> Email </label> <br>
             <input id="email" class="fixed" type="text" onkeypress="entry1(event,'password')" placeholder="Email"> <br>
@@ -132,7 +137,7 @@
             <button id="button" onclick="cancel()">Cancel</button>
             <!-- Thông báo chỉ dẫn -->
             <div class="okAcount">
-                <a href="/creatAcount.html">Forgot password</a> <br>
+                <div onclick="sendEmail()">Forgot password</div> <br>
                 Do not have an account. <a href="/creatAcount.html">Register</a>
             </div>
         </div>
@@ -141,7 +146,19 @@
 
 
     <script>
-
+        // function sendEmail() {
+        //     Email.send({
+        //         Host: "smtp.elasticemail.com",
+        //         Username: "username",
+        //         Password: "password",
+        //         To: 'them@website.com',
+        //         From: "you@isp.com",
+        //         Subject: "This is the subject",
+        //         Body: "And this is the body"
+        //     }).then(
+        //         message => alert("Bạn đã thay đôi mật khẩu thành công")
+        //     );
+        // }
 
         // Hàm ẩn hiện mật khẩu
         function showPassword() {
