@@ -672,7 +672,6 @@ Job:            <span id="jobwork"></span>
 
 
     <script>
-        alert("Đăng ký thành công");
         let indexUs = localStorage.getItem("indexLogin");
         let inforUs = JSON.parse(localStorage.getItem("userInfor"));
         let inforUserName = document.getElementById("user-name");
@@ -895,6 +894,7 @@ Job:            <span id="jobwork"></span>
                 backgroundModal.setAttribute("style", "display:block");
                 logOutMessage.setAttribute("style", "display:block");
             } else {
+                alert("Đăng nhập thành công");
                 backgroundModal.setAttribute("style", "display:none");
                 logOutMessage.setAttribute("style", "display:none");
             }
