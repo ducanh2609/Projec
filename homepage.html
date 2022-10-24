@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="/reponsive.css">
+    <link rel="stylesheet" href="/reponsive.css">
     <title>Homepage</title>
 </head>
 <style>
@@ -647,10 +647,11 @@ Job:            <span id="jobwork"></span>
             <input class="update-name" onkeydown="entry1(event,'update-age')" id="update-name" type="text"> <br>
 
             <label for="update-age">Age</label> <br>
-            <input class="update-age" onkeydown="entry1(event,'update-mobile')" id="update-age" type="number" min="0"> <br>
+            <input class="update-age" onkeydown="entry1(event,'update-mobile')" id="update-age" type="number" min="0">
+            <br>
 
             <label for="update-mobile">Mobile number</label> <br>
-            <input class="update-mobile" onkeydown="entry1(event,'update-address')" id="update-mobile" type="number" >
+            <input class="update-mobile" onkeydown="entry1(event,'update-address')" id="update-mobile" type="number">
             <br>
             <label for="update-address">Address</label> <br>
             <input class="update-address" onkeydown="entry1(event,'update-jobwork')" id="update-address" type="text">
@@ -671,6 +672,7 @@ Job:            <span id="jobwork"></span>
 
 
     <script>
+        alert("Đăng ký thành công");
         let indexUs = localStorage.getItem("indexLogin");
         let inforUs = JSON.parse(localStorage.getItem("userInfor"));
         let inforUserName = document.getElementById("user-name");
@@ -715,7 +717,7 @@ Job:            <span id="jobwork"></span>
 
         let user = document.getElementById("user");
         if (inforUs[indexUs1] == null || inforUs[indexUs1].Name == "") {
-            user.innerHTML = inforUserName.innerHTML ;
+            user.innerHTML = inforUserName.innerHTML;
         } else {
             let Name = JSON.parse(localStorage.getItem("userInfor"))[indexUs1].Name;
             user.innerHTML = Name;
